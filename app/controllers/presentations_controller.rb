@@ -1,9 +1,16 @@
 class PresentationsController < ApplicationController
 
+    def results
+        @presentation = Presentation.find(params[:presentation_id])
+        @questions = @presentation.questions
+    end
+
     def index
     end
 
     def show
+        @presentation = Presentation.find(params[:presentation_id])
+        @questions = @presentation.questions
     end
 
     def new
@@ -11,7 +18,7 @@ class PresentationsController < ApplicationController
     end
 
     def create
-        @presentation = params[:presentation]
+        @presentation = Presentation.create(params[:presentation])
         if @presentation.save
             flash[:success] = "Created yo presentation."
             redirect_to new_presentation_question_path(@presentation)

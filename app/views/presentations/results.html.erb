@@ -1,0 +1,8 @@
+Name: <%= @presentation.name %><br>
+<%= @presentation.questions.each do |question| %><br>
+    Question: <%= question.name %><br>
+    Result: <br>
+    Yes: <%= question.answers.find_all_by_result("1").length %>
+    No: <%= question.answers.find_all_by_result("0").length %>
+<% end %>
+<br>

@@ -3,7 +3,10 @@ Pollinate::Application.routes.draw do
   # first created -> highest priority.
 
   resources :presentations do
-      resources :questions
+      get 'results'
+      resources :questions do
+          resources :answers
+      end
   end
 
 

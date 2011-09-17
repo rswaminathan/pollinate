@@ -1,0 +1,65 @@
+<%= javascript_include_tag "jquery-1.4.2.min.js" %> 
+
+<%= javascript_include_tag "jqtouch.js", "jqt.location.js" %> 
+
+        <script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch({
+                icon: 'jqtouch.png',
+                addGlossToIcon: false,
+                startupScreen: 'jqt_startup.png',
+                statusBar: 'black'
+            });
+
+            $(function(){
+                function setDisplay(text) {
+                    $('div#jqt .info').empty().append(text)
+                };
+                
+		$("#enter_button").mousedown(function(){
+			var tvalue = document.getElementById("home_form").value;
+		      window.location = "http://www.google.com/" + tvalue;
+		    })
+		
+                // We pass "updateLocation" a callback function,
+                // to run once we have the coordinates.
+                // We also set it to a variable, so we can know
+                // right away if it's working or not
+                var lookup = jQT.updateLocation(function(coords){
+                    if (coords) {
+			window.location = "http://www.google.com/" + coords.latitude + coords.longitude;
+                        //setDisplay('Latitude: ' + coords.latitude + '<br />Longitude: ' + coords.longitude);
+                        
+                     
+                    } else {
+                        setDisplay('Device not capable of geo-location.');
+                    }
+                });
+
+                if (lookup) {
+                    setDisplay('Looking up location&hellip;');
+                    
+                }
+            });
+
+jQuery.fn.extend({
+	
+});	
+        </script>
+
+        <div id="jqt">
+            <div id="getlocation">
+                <div class="toolbar">
+                    <h1>Instapol.com</h1>
+                </div>
+
+		<form>
+                    <ul class="edit rounded">
+                        <li><input type="text" name="name" placeholder="Enter the Conference Tag" id="home_form" /></li>
+
+<li><a target href="#" rel="external" id="enter_button">Enter</a></li>
+                </ul>
+		
+                    
+                <div class="info"></div>
+            </div>
+        </div>

@@ -9,9 +9,11 @@ class QuestionsController < ApplicationController
     end
 
     def create
-        @question = Presentation.find(params[:presentation_id]).questions.build(params[:question])
+        @presentation = Presentation.find(params[:presentation_id])
+        @question = @presentation.questions.build(params[:question])
         if @question.save
-            flash[:success] = "Your question has been saved"
+            flash[:success] = "Your question has been saved. You may create another one."
+            redirect_to new_presentation_question_path(@presentation)
         else
             flash[:error] = "Something went wrong"
         end

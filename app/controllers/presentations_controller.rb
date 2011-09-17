@@ -9,7 +9,7 @@ class PresentationsController < ApplicationController
     end
 
     def show
-        @presentation = Presentation.find(params[:presentation_id])
+        @presentation = Presentation.find(params[:id])
         @questions = @presentation.questions
     end
 

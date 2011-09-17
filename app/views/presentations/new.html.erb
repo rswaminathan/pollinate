@@ -1,7 +1,6 @@
 <%= semantic_form_for @presentation do |form| %>
-    <%= form.inputs do %>
+    <%= form.inputs :name => "Make a new presentation" do %>
         <%= form.input :name %>
-        <%= form.input :time %>
         <%= form.submit "Create Presentation" %>
     <% end %>
 <% end %>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  time: 2011-09-17 11:02:28
+  name: MyString
+
+two:
+  time: 2011-09-17 11:02:28
+  name: MyString
+
+# == Schema Information
+#
+# Table name: presentations
+#
+#  id         :integer         not null, primary key
+#  time       :datetime
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+

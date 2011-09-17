@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ip: MyString
+  cookie: MyString
+  result: 1
+  question_id: 1
+
+two:
+  ip: MyString
+  cookie: MyString
+  result: 1
+  question_id: 1
+
+# == Schema Information
+#
+# Table name: answers
+#
+#  id          :integer         not null, primary key
+#  ip          :string(255)
+#  cookie      :string(255)
+#  result      :integer
+#  question_id :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

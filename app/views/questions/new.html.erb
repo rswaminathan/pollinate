@@ -1,8 +1,9 @@
 <%= semantic_form_for [@presentation, @question] do |form| %>
-    <%= form.inputs do %>
+    <%= form.inputs :name => "Create a question" do %>
         <%= form.input :name%>
         <%= form.submit "Create Question" %>
     <% end %>
 <% end %>
-Make your audience go here: <%= link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) %>
+Make your audience go here: <%= link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) %><br>
+Get your results here: <%= link_to "#{presentation_results_url(@presentation)}", presentation_results_path(@presentation) %>
 

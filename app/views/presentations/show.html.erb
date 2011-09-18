@@ -1,11 +1,42 @@
-<% if @question %>
-    <%= semantic_form_for [@presentation, @question, @question.answers.build] do |form| %>
-        <%= form.inputs :name => "#{@question.name}" do %>
-            <%=  form.input :result, :as => :radio, :collection => [["Yes", 1], ["No", 0]],:label => "Answer this" %>
-        <% end %>
-        <%= form.submit "Submit Answer" %>
-    <% end %>
+<script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
 
-<% else %>
-    Wait for question to be enabled
-<% end -%>
+<div data-role="page" id="question">
+
+  <div data-role="header" class="header" data-nobackbtn=”false”>
+    <h1 class="Instapol"> <a ref ="http://www.google.com/"> <span>Instapol</span> </a> </h1> 
+  </div>
+  <div data-role="content">
+    <form action="#" method="get">
+     
+	<% if @question %>
+	    <%= semantic_form_for [@presentation, @question, @question.answers.build] do |form| %>
+	        <%= form.inputs :name => "#{@question.name}" do %>
+	    	<fieldset data-role="controlgroup">
+			</br>
+	            <%=  form.input :result, :as => :radio, :collection => [["Yes", 1], ["No", 0]], :label => @question.name %>
+	    	</fieldset>
+	        
+		<% end %>
+	      
+
+	
+  </div>     
+     
+    <div class="ui-body ui-body-b">
+      <fieldset class="ui-grid-a">
+	        <%= form.submit "Submit Answer" %> 
+
+	    <% end %>
+
+	<% else %>
+  	<div data-role="content">	
+	     <p class="type-interior">Waiting for next question.</p>
+	</div>
+	
+	    
+	<% end -%>
+	      </fieldset>
+
+  </div>
+
+</div>

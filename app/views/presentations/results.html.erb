@@ -6,7 +6,7 @@ Name: <%= @presentation.name %><br>
             <%= submit_tag "Enable"%>
         <% else %>
             <%= submit_tag "Disable"%>
-    <% end %>
+        <% end %>
     <% end -%>
     Result: <br>
     Yes: <%= question.answers.find_all_by_result("1").length %>
@@ -14,36 +14,28 @@ Name: <%= @presentation.name %><br>
 <% end %>
 <br>
 <%= link_to "Create more questions", new_presentation_question_path(@presentation) %>
-<div id="update_location_button">
-click this to update yo shit
+<button id="btnInit">
+    click this to update yo shit
 </div>
-<script>
-	var jQT = new $.jQTouch({
-		icon: 'jqtouch.png',
-		addGlossToIcon: false,
-		startupScreen: 'jqt_startup.png',
-		statusBar: 'black'
-	});
+<script>  
+    jQuery(window).ready(function(){  
+        jQuery("#btnInit").click(initiate_geolocation);  
+    });  
 
+    function initiate_geolocation() {  
+        navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
+    }  
 
-		// We pass "updateLocation" a callback function,
-		// to run once we have the coordinates.
-		// We also set it to a variable, so we can know
-		// right away if it's working or not
-		var lookup = jQT.updateLocation(function(coords) {
-			if (coords) {
-				$("#update_location_button").click(function(){	
-                    alert("hi");
-					//window.location = <%= root_url %>"presentations/<%= @presentation.id %>/edit?"+"lat=" + coords.latitude + "&lon=" + coords.longitude;
-				}
-			} else {
-				setDisplay('Device not capable of geo-location.');
-			}
-		});
+    function handle_geolocation_query(position){  
+            $.ajax({
+                type: "POST",
+                url: '/presentations/<%= @presentation.id %>',
+                data: { _method:'PUT', loc : JSON.stringify({lat : position.coords.latitude, lon : position.coords.latitude})},
+                dataType: 'json',
+                success: function(msg) {
+                    alert( "Data Saved: " + msg );
+                }
+            });
 
-		if (lookup) {
-			setDisplay('Looking up location&hellip;');
-
-		}
-	});
-</script>	
+    }  
+</script> 

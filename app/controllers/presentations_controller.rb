@@ -32,6 +32,9 @@ class PresentationsController < ApplicationController
     end
 
     def update
+      @presentation = Presentation.find(params[:id])
+      @presentation.update_attributes!(:latitude => params[:lat], :longitude => params[:lon])
+      flash.now[:success] = "Updated location"
     end
 
     def destroy
@@ -41,7 +44,6 @@ class PresentationsController < ApplicationController
       @presentation = Presentation.find(params[:id])
       @presentation.update_attributes!(:latitude => params[:lat], :longitude => params[:lon])
       redirect_to presentation_results_path(@presentation)
-
     end
 
 end

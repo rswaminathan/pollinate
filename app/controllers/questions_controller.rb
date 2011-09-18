@@ -3,6 +3,11 @@ class QuestionsController < ApplicationController
     def index
     end
 
+    def chart
+        @presentation = Presentation.find(params[:presentation_id])
+        @question = Question.find(params[:question_id])
+
+    end
 
     def enable
         @presentation = Presentation.find(params[:presentation_id])

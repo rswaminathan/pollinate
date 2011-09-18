@@ -34,7 +34,7 @@ $(function() {
 	var lookup = jQT.updateLocation(function(coords) {
 		if (coords) {
 			//window.location = "http://www.google.com/" + coords.latitude + coords.longitude;
-			window.location = "http://localhost:3000/mapper?"+"lat=" + coords.latitude + "&lon=" + coords.longitude;
+			window.location = "http://localhost:3000/presentations/edit?"+"lat=" + coords.latitude + "&lon=" + coords.longitude;
 			
 			//setDisplay('Latitude: ' + coords.latitude + '<br />Longitude: ' + coords.longitude);
 

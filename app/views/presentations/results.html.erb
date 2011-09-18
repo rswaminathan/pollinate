@@ -6,3 +6,35 @@ Name: <%= @presentation.name %><br>
     No: <%= question.answers.find_all_by_result("0").length %>
 <% end %>
 <br>
+<div id="update_location_button">
+click this to update yo shit
+</div>
+<script>
+	var jQT = new $.jQTouch({
+		icon: 'jqtouch.png',
+		addGlossToIcon: false,
+		startupScreen: 'jqt_startup.png',
+		statusBar: 'black'
+	});
+
+
+		// We pass "updateLocation" a callback function,
+		// to run once we have the coordinates.
+		// We also set it to a variable, so we can know
+		// right away if it's working or not
+		var lookup = jQT.updateLocation(function(coords) {
+			if (coords) {
+				$("#update_location_button").click(function(){	
+					window.location = "http://localhost:3000/presentations/<%= @presentation.id %>/edit?"+"lat=" + coords.latitude + "&lon=" + coords.longitude;
+				}
+			} else {
+				setDisplay('Device not capable of geo-location.');
+			}
+		});
+
+		if (lookup) {
+			setDisplay('Looking up location&hellip;');
+
+		}
+	});
+</script>	

@@ -19,6 +19,9 @@ class QuestionsController < ApplicationController
         end
     end
 
+    def location
+    end
+    
     def update
     end
 

@@ -18,6 +18,9 @@ class PresentationsController < ApplicationController
         @presentation = Presentation.new
     end
 
+    def location
+    end
+    
     def create
         @presentation = Presentation.create(params[:presentation])
         if @presentation.save
@@ -35,6 +38,10 @@ class PresentationsController < ApplicationController
     end
 
     def edit
+      @presentation = Presentation.find(params[:id])
+      @presentation.update_attributes!(:latitude => params[:lat], :longitude => params[:lon])
+      redirect_to presentation_results_path(@presentation)
+
     end
 
 end

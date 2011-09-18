@@ -16,7 +16,6 @@
     
     (c) 2009 by jQTouch project members.
     See LICENSE.txt for license.
-
 */
 
 (function($) {
@@ -29,7 +28,7 @@
             function checkGeoLocation() {
                 return navigator.geolocation;
             }
-            function updateLocation(fn) {
+            function updateLocation(fn) { 
                 if (checkGeoLocation())
                 {
                     callback = fn;

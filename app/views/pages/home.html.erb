@@ -2,20 +2,20 @@
 <%= javascript_include_tag "jqtouch.js", "jqt.location.js", "home.js" %> 
 
 
-       	<div id="jqt">
-	          <div id="getlocation">
-	              <div class="toolbar">
-	                  <h1>Instapol.com</h1>
-	              </div>
 
-	<form>
-	                  <ul class="edit rounded">
-	                      <li><input type="text" name="name" placeholder="Enter the Conference Tag" id="home_form" /></li>
 
-	<li><a target href="#" rel="external" id="enter_button">Enter</a></li>
-	              </ul>
+	<div data-role="page" id="home">
 
-                  
-	              <div class="info"></div>
-	          </div>
-	      </div>
+		<div data-role="header" class="header">
+			<h1 class="Instapol"><span>Instapol</span></h1>
+		</div>
+	  	<div data-role="content">	
+		     <div data-role="fieldcontain">
+	       		<label for="name">Enter Conference Tag (please ask your presenter):</label>
+	       		<input type="text" name="name" id="name" value=""  />
+	     	 </div>
+	<!-- 	<a href="#question" data-role="button" data-theme="b" data-transition="pop">Enter</button>  -->
+		<p><a href="#question" data-theme="a" data-icon="arrow-r" data-role="button">Enter</a></p>
+		</div>
+
+	</div>

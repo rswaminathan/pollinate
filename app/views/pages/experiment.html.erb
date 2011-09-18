@@ -1,21 +1,27 @@
-<div data-role="page" id="home">
+<%= javascript_include_tag "jquery-1.4.2.min.js" %> 
+<%= javascript_include_tag "jqtouch.js", "jqt.location.js", "home.js" %> 
 
-	<div data-role="header">
-		<h1 class="Instapol"><span>Instapol</span></h1>
-	</div>
-<!-- 	<a href="#question" data-role="button" data-theme="b" data-transition="pop">Enter</button>  -->
-	<p><a href="#question" data-role="button">Question</a></p>
-</div>
+<!DOCTYPE html> 
+<html> 
+  <head> 
+  <title>Instapol</title> 
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
+  <link rel="stylesheet" href="Instapol.css" />
+  <script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="apple-touch-startup-image" href="startup.png" />
+</head> 
+<body> 
 
 <div data-role="page" id="question">
 
-  <div data-role="header">
+  <div data-role="header" class="header">
     <h1 class="Instapol"><span>Instapol</span></h1>
   </div>
   <div data-role="content">
     <form action="#" method="get">
-
-     <div data-role="fieldcontain">
+     
     <fieldset data-role="controlgroup">
     	<legend>Choose a pet:</legend>
          	<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
@@ -30,22 +36,19 @@
          	<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4"  />
          	<label for="radio-choice-4">Lizard</label>
     </fieldset>
-</div>
 
 
-
-
-
+  </div>     
+     
     <div class="ui-body ui-body-b">
       <fieldset class="ui-grid-a">
-        <button type="submit" data-theme="a" data-transition="pop">Submit</button>     
+        <button type="submit" data-theme="a" data-transition="pop">Submit</button>    
       </fieldset>
-    </div>
+
   </div>
 
 </div>
 
 </body>
 </html>
-
 

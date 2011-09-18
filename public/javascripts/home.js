@@ -12,7 +12,7 @@ var jQT = new $.jQTouch({
             
 	$("#enter_button").mousedown(function(){
 		var tvalue = document.getElementById("home_form").value;
-	      window.location = "http://www.google.com/" + tvalue;
+	     // window.location = "http://www.google.com/" + tvalue;
 	    })
 	
             // We pass "updateLocation" a callback function,

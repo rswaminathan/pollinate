@@ -2,7 +2,7 @@
     <%= form.inputs :name => "#{@question.name}" do %>
         <fieldset data-role="controlgroup">
             </br>
-            <%=  form.input :result, :as => :radio, :collection => @question.choices, :label => false %>
+            <%=  form.input :result, :as => :radio, :collection => @question.choices.invert, :label => false %>
         </fieldset>
     <% end %>
     <div class="ui-body ui-body-b">

@@ -10,6 +10,7 @@ Pollinate::Application.routes.draw do
       get 'results'
       resources :questions do
           post 'enable'
+          get 'chart'
           resources :answers
       end
   end

@@ -20,22 +20,28 @@
   <div class="grid_12">
   
     <div id="placeholder"style="width:925px;">
-    		<%= @presentation.questions.each_with_index do |question, index| %><br>
+    		<% @presentation.questions.each_with_index do |question, index| %><br>
 	    
 	    <%= form_tag presentation_question_enable_path(@presentation, question) do |f| -%>
 	        <% if question.enabled == false %>
+                <div id="begin_button">
 	            <%= submit_tag "Begin"%>
+                </div>
 	        <% else %>
 	            <%= submit_tag "Stop"%>
 	        <% end %>
 	Question <%= index+1 %>: <strong><%= question.name %></strong><br> 
 	    <% end -%>
 		<% if  (question.answers.length > 0) %>
-		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		Result: 
 	    Yes: <%= question.answers.find_all_by_result("1").length %>
 	    No: <%= question.answers.find_all_by_result("0").length %>
 		</br>
+        <script>
+            $("#begin_button").click(function(){
+                window.open("<%= presentation_question_chart_path(@presentation, question) %>")
+            })
+            </script>
 		
 	        <% else %>
 

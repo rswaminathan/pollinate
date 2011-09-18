@@ -6,10 +6,8 @@ class Presentation < ActiveRecord::Base
             answers = (questions.map {|q|
                 q.answers.where(:cookie => cookie)
             }).flatten
-<<<<<<< HEAD
-=======
+
             answered_questions = Set.new(answers.map &:question)
->>>>>>> 3dcb4ad0ba21565b05e49bdbf1197aabc16d5ce5
             enabled_questions = Set.new questions.enabled
            (enabled_questions - answered_questions).to_a
         end

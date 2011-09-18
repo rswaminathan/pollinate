@@ -1,0 +1,10 @@
+h1.Instapol {
+        width: 127px;
+        height: 27px;
+        margin-left: 140px!important;
+        background-image: url("/images/Instapol_header.png");
+        }
+        h1.Instapol span {
+                display: none;
+}
+.hide { display: none;}

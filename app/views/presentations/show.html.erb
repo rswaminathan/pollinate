@@ -1,11 +1,14 @@
 <% content_for :head do %>
 <script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
+<%= stylesheet_link_tag 'header-logo.css' %>
+
 <% end %>
 
 <div data-role="page" id="question">
 
-    <div data-role="header" class="header" data-nobackbtn=”false”>
-        <h1 class="Instapol"> <a ref ="http://www.google.com/"> <span>Instapol</span> </a> </h1> 
+    <div data-role="header" class="header">
+        <h1 class="Instapol"> <span>Instapol</span> </h1> 
+	<a href= "#home" data-icon="arrow-r" >Home</a>
     </div>
     <div data-role="content">
         <div id="question_form">
@@ -36,3 +39,27 @@
         setTimeout(updatePoll, 1000);
     }
 </script>
+
+
+
+<div data-role="page" id="home">
+
+	<div data-role="page" id="home">
+		<div data-role="header" class="header">
+			<h1 class="Instapol"><span>Instapol</span></h1>
+		  
+		</div>
+		
+	  	<div data-role="content">			
+		     <div data-role="fieldcontain">
+	       		<label for="name">Change Presentation:</label>
+	       		<input type="text" name="name" id="home_form" placeholder = "Enter Presentation Name" />
+			<p><a id="enter_button" data-theme="a" data-icon="arrow-r" data-role="button">Enter To Polling</a></p>
+	     	 	</div>	
+		</div>	
+
+		<a href="<%= new_presentation_path %>" rel = "external" data-role="button"> Create New Presentation </a>
+
+	</div>
+	
+</div>

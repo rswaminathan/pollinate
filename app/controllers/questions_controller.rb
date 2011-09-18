@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
 
 
     def enable
+        @presentation = Presentation.find(params[:presentation_id])
         @question = Question.find(params[:question_id])
         @question.enabled = !@question.enabled
         if @question.save
@@ -12,6 +13,7 @@ class QuestionsController < ApplicationController
         else
             flash[:error] = "Can't be enabled"
         end
+        redirect_to presentation_results_path(@presentation)
     end
 
     def new

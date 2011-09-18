@@ -1,0 +1,4 @@
+<% if @question %>
+    $("#question").html("<%= raw escape_javascript(render(@question))%>");
+    $("#show").hide();
+<% end %>

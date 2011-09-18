@@ -9,7 +9,7 @@ class PresentationsController < ApplicationController
     end
 
     def show
-        session[:cookie] ||= request.ip + rand(100000000).to_s
+        session[:cookie] ||= (request.ip + rand(100000000).to_s)
         @presentation = Presentation.find(params[:id])
         @question = @presentation.not_completed(session[:cookie]).first
     end

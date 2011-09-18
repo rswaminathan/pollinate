@@ -1,11 +1,22 @@
-<% if @question %>
-    <%= semantic_form_for [@presentation, @question, @question.answers.build] do |form| %>
-        <%= form.inputs :name => "#{@question.name}" do %>
-            <%=  form.input :result, :as => :radio, :collection => [["Yes", 1], ["No", 0]],:label => "Answer this" %>
-        <% end %>
-        <%= form.submit "Submit Answer" %>
-    <% end %>
+<div id="question">
+    <% if @question %>
+        <%= render @question %>
+    <% else %>
+    <div id="wait">
+        Wait for question to be enabled
+    </div>
+<% end %>
+</div>
 
-<% else %>
-    Wait for question to be enabled
-<% end -%>
+<script>
+    $(function() {
+        if ($("#wait").length > 0) {
+            setTimeout(updatePoll, 1000);
+        }
+    });
+
+    function updatePoll() {
+        $.getScript("/presentations/<%= @presentation.id %>.js")
+        setTimeout(updatePoll, 1000);
+    }
+</script>

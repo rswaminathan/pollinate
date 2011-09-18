@@ -13,3 +13,4 @@ Name: <%= @presentation.name %><br>
     No: <%= question.answers.find_all_by_result("0").length %>
 <% end %>
 <br>
+<%= link_to "Create more questions", new_presentation_question_path(@presentation) %>

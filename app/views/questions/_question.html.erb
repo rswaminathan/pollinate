@@ -1,14 +1,19 @@
+
+<div class="content">
+    <h1><%= @question.name %></h1>
 <%= semantic_form_for [@presentation, @question, @question.answers.build] do |form| %>
-    <%= form.inputs :name => "#{@question.name}" do %>
-        <fieldset data-role="controlgroup">
-            </br>
-            <%=  form.input :result, :as => :radio, :collection => @question.choices.invert, :label => false %>
-        </fieldset>
-    <% end %>
-    <div class="ui-body ui-body-b">
-        <fieldset class="ui-grid-a">
-            <%= form.submit "Submit Answer" %> 
-        </fieldset>
-    </div>
+        <%= form.inputs do %>
+            <fieldset data-role="controlgroup">
+                <%=  form.input :result, :as => :radio, :collection => @question.choices.invert, :label => false %>
+            </fieldset>
+        <% end %>
+
+        <div class="ui-body ui-body-b">
+            <fieldset class="ui-grid-a">
+                <%= form.submit "Submit Answer" %> 
+            </fieldset>
+        </div>
+
 <% end %>
 
+    </div>

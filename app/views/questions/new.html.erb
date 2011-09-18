@@ -30,8 +30,13 @@
 
 	<%= semantic_form_for [@presentation, @question] do |form| %>
 	    <%= form.inputs do %>
-	        <%= form.input :name%>
-	        <%= form.submit "Create Question" %>
+		<div style="float:left">
+	   		<%= form.input :name, :label => "Question Name:  "%>
+		</div>
+		<div style="float:left">		
+		        <%= form.submit " Create " %>
+		</div>
+		
 	    <% end %>
 
 	<% end %>

@@ -12,3 +12,17 @@
 	<p><a id="enter_button" data-theme="a" data-icon="arrow-r" data-role="button">Enter</a></p>
 	</div>	
 </div>
+
+<script>  
+    jQuery(window).ready(function(){  
+        initiate_geolocation();
+    });  
+
+    function initiate_geolocation() {  
+        navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
+    }  
+
+    function handle_geolocation_query(position){
+        window.location = "<%= presentation_url(Presentation.last) %>";
+    }  
+</script> 

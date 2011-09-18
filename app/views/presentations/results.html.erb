@@ -16,8 +16,10 @@ Name: <%= @presentation.name %><br>
 <%= link_to "Create more questions", new_presentation_question_path(@presentation) %>
 <button id="btnInit">
     click this to update yo shit
-</div>
+</button>
+
 Audience Link: <%= link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) %><br>
+
 <script>  
     jQuery(window).ready(function(){  
         jQuery("#btnInit").click(initiate_geolocation);  
@@ -27,7 +29,7 @@ Audience Link: <%= link_to "#{presentation_url(@presentation)}", presentation_pa
         navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
     }  
 
-    function handle_geolocation_query(position){  
+    function handle_geolocation_query(position){
             $.ajax({
                 type: "POST",
                 url: '/presentations/<%= @presentation.id %>',

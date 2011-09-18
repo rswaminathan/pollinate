@@ -1,7 +1,7 @@
 Pollinate::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
-    root :to => 'presentations#new'
+    root :to => 'pages#home'
     match	'home',					:to => 'pages#home'
     match	'experiment',					:to => 'pages#experiment'
     match	'mapper',					:to => 'pages#mapper'

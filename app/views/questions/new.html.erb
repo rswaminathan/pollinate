@@ -6,9 +6,14 @@
         <%= form.input :name%>
         <%= form.submit "Create Question" %>
     <% end %>
+
 <% end %>
-Make your audience go here: <%= link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) %><br>
-Get your results here: <%= link_to "#{presentation_results_url(@presentation)}", presentation_results_path(@presentation) %>
+
+<INPUT TYPE="BUTTON" VALUE="Finished" ONCLICK="window.location.href= '<%= presentation_results_url(@presentation) %>' "> 
 
 </br> </br>
 <a href = "#"> </a>
+
+<%= @presentation.questions.each_with_index do |question, index| %><br>
+    Question <%= index+1 %>: <%= question.name %><br>
+<% end %>

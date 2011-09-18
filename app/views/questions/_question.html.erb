@@ -1,7 +1,14 @@
 <%= semantic_form_for [@presentation, @question, @question.answers.build] do |form| %>
     <%= form.inputs :name => "#{@question.name}" do %>
-        <%=  form.input :result, :as => :radio, :collection => [["Yes", 1], ["No", 0]],:label => "Answer this" %>
+        <fieldset data-role="controlgroup">
+            </br>
+            <%=  form.input :result, :as => :radio, :collection => [["Yes", 1], ["No", 0]], :label => false %>
+        </fieldset>
     <% end %>
-    <%= form.submit "Submit Answer" %>
+    <div class="ui-body ui-body-b">
+        <fieldset class="ui-grid-a">
+            <%= form.submit "Submit Answer" %> 
+        </fieldset>
+    </div>
 <% end %>
 

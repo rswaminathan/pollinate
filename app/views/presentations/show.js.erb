@@ -1,4 +1,3 @@
 <% if @question %>
-    $("#question").html("<%= raw escape_javascript(render(@question))%>");
-    $("#show").hide();
+    window.location.reload();
 <% end %>

@@ -17,6 +17,7 @@ Name: <%= @presentation.name %><br>
 <button id="btnInit">
     click this to update yo shit
 </div>
+Audience Link: <%= link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) %><br>
 <script>  
     jQuery(window).ready(function(){  
         jQuery("#btnInit").click(initiate_geolocation);  

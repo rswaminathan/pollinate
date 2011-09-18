@@ -1,11 +1,25 @@
-<div id="question">
-    <% if @question %>
-        <%= render @question %>
-    <% else %>
-    <div id="wait">
-        Wait for question to be enabled
+<script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
+
+<div data-role="page" id="question">
+
+    <div data-role="header" class="header" data-nobackbtn=”false”>
+        <h1 class="Instapol"> <a ref ="http://www.google.com/"> <span>Instapol</span> </a> </h1> 
     </div>
-<% end %>
+    <div data-role="content">
+        <div id="question_form">
+            <% if @question %>
+                <%= render @question %>
+            <% else %>
+                <div data-role="content">
+                    <div id="wait">
+                        <p class="type-interior">Waiting for next question.</p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+    </div>
+
 </div>
 
 <script>

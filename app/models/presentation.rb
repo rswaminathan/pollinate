@@ -3,9 +3,10 @@ class Presentation < ActiveRecord::Base
 
 
         def not_completed(cookie)
-            answered_questions = Set.new questions.map({|q|
+            answered_questions = Set.new (questions.map {|q|
                 q.answers.where(:cookie => cookie)
             }).flatten
+            binding.pry
             enabled_questions = Set.new questions.enabled
            (enabled_questions - answered_questions).to_a
         end

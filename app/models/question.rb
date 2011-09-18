@@ -2,7 +2,7 @@ class Question < ActiveRecord::Base
     belongs_to :presentation
     has_many :answers
 
-    default_scope :order => 'created_at DESC'
+    default_scope :order => 'created_at ASC'
     scope :enabled, where(:enabled => true)
 
 

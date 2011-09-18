@@ -7,6 +7,16 @@ class Question < ActiveRecord::Base
 
     serialize :choices
 
+    def get_result_count
+        counts = []
+        choices.to_a.each_with_index do |c, i|
+            counts << [i, 0] unless c[1] == ""
+        end
+        answers.each do |a|
+            counts[a.result][1] += 1
+        end
+        counts
+    end
 
 end
 

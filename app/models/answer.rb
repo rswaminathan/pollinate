@@ -1,6 +1,7 @@
 class Answer < ActiveRecord::Base
     belongs_to :question
     scope :from_cookie, lambda{|cookie| where(:cookie => cookie)}
+
 end
 
 # == Schema Information

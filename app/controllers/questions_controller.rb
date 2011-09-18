@@ -4,9 +4,9 @@ class QuestionsController < ApplicationController
     end
 
     def chart
-        @presentation = Presentation.find(params[:presentation_id])
         @question = Question.find(params[:question_id])
-
+        @results = @question.get_result_count
+        @result_names = @question.choices.values.find_all {| x | x != "" }
     end
 
     def enable

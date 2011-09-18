@@ -1,0 +1,63 @@
+<% content_for :head do %>
+    <%= javascript_include_tag 'jquery.flot.js' %>
+<% end %>
+
+<div id='chart_placeholder' style="width:800px; height:600px;">
+</div>
+
+<script>
+
+    function space_out_data(the_data){
+        new_data = [];
+        for (var i = 0; i < the_data.length; i += 1) {
+            new_data.push([2*i, 0]);
+            new_data.push([2*i+1, the_data[i][1]]);
+
+        }
+        return new_data
+    };
+
+    var scale_snap = 5;
+    function scale(the_data) {
+        the_max = 0;
+        for(i = 0; i < the_data.length; i += 1) {
+            if (the_data[i][1] > the_max) {
+                the_max = the_data[i][1];
+            }
+        }
+        return parseInt(the_max / scale_snap + 1) * scale_snap;
+    }
+
+    function myTickFormatter(number) {
+        if (number % 2 == 0) {
+            return "";
+        }
+        return <%= raw @result_names.to_json %>[(number-1) / 2];
+    }
+
+    $(function () {
+        the_data =  <%= raw @results.to_json %>;
+        $.plot($('#chart_placeholder'),
+        [{ 
+            data: space_out_data(the_data),
+            bars: {show:true}
+
+        }],
+        {
+            xaxis: {
+                tickSize: 1,
+                tickFormatter: myTickFormatter
+            },
+            yaxis: {
+                tickSize: 1,
+                max: scale(the_data)
+            }
+        }
+        )
+        setTimeout(function(){
+            window.location.href=window.location.href
+            }, 1000)
+    });
+
+</script>
+

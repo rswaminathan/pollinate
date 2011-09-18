@@ -31,11 +31,11 @@
                 <%= form.inputs :name => "Create a question" do %>
                     <%= form.input :name%>
                     <%= form.semantic_fields_for "choices" do |choice| %>
-                        <%= choice.inputs :description1 %>
-                        <%= choice.inputs :description2 %>
-                        <%= choice.inputs :description3 %>
-                        <%= choice.inputs :description4 %>
-                        <%= choice.inputs :description5 %>
+                        <%= choice.inputs :"0", :required => false, :label => false %>
+                        <%= choice.inputs :"1" %>
+                        <%= choice.inputs :"2" %>
+                        <%= choice.inputs :"3" %>
+                        <%= choice.inputs :"4" %>
                     <% end %>
                     <%= form.submit "Create Question" %>
                 <% end %>

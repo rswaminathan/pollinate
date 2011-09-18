@@ -10,4 +10,6 @@ def mapper
   @information = params[:id];
 end
 
+def begin
+end
 end

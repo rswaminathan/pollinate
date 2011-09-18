@@ -1,19 +1,52 @@
+<% content_for :head do %>
+ <title>InstaPol Admin</title>
+
+<%= stylesheet_link_tag "reset.css" %>
+<%= stylesheet_link_tag "text.css" %>
+<%= stylesheet_link_tag "960.css" %>
+<%= stylesheet_link_tag "demo1.css" %>
 <%= javascript_include_tag "presenter_questions.js" %>
 
 
-<%= semantic_form_for [@presentation, @question] do |form| %>
-    <%= form.inputs :name => "Create a question" do %>
-        <%= form.input :name%>
-        <%= form.submit "Create Question" %>
-    <% end %>
-
 <% end %>
 
-<INPUT TYPE="BUTTON" VALUE="Finished" ONCLICK="window.location.href= '<%= presentation_results_url(@presentation) %>' "> 
 
-</br> </br>
-<a href = "#"> </a>
+<h1>
+  <a href="http://960.gs/"><img src="../../Instapol-logo.png" alt="Instapol-logo" width="411" height="142" /></a>
+</h1>
+<div class="container_12">
+  <h2>
+    Create Presentation Questions
+  </h2>
+  <div class="grid_12">
+  
+    <div id="placeholder"style="width:925px;">
+    
+	 <% flash.each do |key, value| %>
+	     <div id="<%= key %>">
+	         <%= value %>
+	     </div>
+	 <% end %>
 
-<%= @presentation.questions.each_with_index do |question, index| %><br>
-    Question <%= index+1 %>: <%= question.name %><br>
-<% end %>
+	<%= semantic_form_for [@presentation, @question] do |form| %>
+	    <%= form.inputs do %>
+	        <%= form.input :name%>
+	        <%= form.submit "Create Question" %>
+	    <% end %>
+
+	<% end %>
+
+	<INPUT TYPE="BUTTON" VALUE="Finished" ONCLICK="window.location.href= '<%= presentation_results_url(@presentation) %>' "> 
+
+	</br> </br>
+	<a href = "#"> </a>
+
+	<%= @presentation.questions.each_with_index do |question, index| %><br>
+	    Question <%= index+1 %>: <strong><%= question.name %></strong><br> 
+	<% end %>
+
+    </div> 
+    <h5 class="footer">&copy; 2011<a title="copyright" href="http://www.chuckmcquilkin.com/"> The Team</a> | <a href="#">About InstaPol</a> | <a title="credit" href="http://perishablepress.com/">Perishable Press</a></h5> 
+  </div>
+  <!-- end .grid_12 -->
+  </div>

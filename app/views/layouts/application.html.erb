@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Pollinate</title>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "jquery.mobile-1.0b3.css", "header-logo.css" %>
   <%= javascript_include_tag :defaults %>
   <%= stylesheet_link_tag 'header-logo.css' %>
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
@@ -12,11 +12,6 @@
 </head>
 <body>
 
- <% flash.each do |key, value| %>
-     <div id="<%= key %>">
-         <%= value %>
-     </div>
- <% end %>
 <%= yield %>
 
 <% params %>

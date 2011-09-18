@@ -9,6 +9,7 @@ Pollinate::Application.routes.draw do
   resources :presentations do
       get 'results'
       resources :questions do
+          post 'enable'
           resources :answers
       end
   end

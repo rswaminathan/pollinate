@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
         params_with_cookie[:cookie] = session[:cookie]
         @answer= @question.answers.build(params_with_cookie)
         if @answer.save
-            flash[:success] = "Saved your answer. Answer another question. "
+            flash[:success] = "Saved your answer."
         else
             flash[:error] = "Something went wrong when saving your answer. Try again."
         end

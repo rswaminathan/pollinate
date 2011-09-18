@@ -1,19 +1,20 @@
-
-  <link rel="stylesheet" href="Instapol.css" />
-
-  <script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
-
-
 <div data-role="page" id="home">
+
+	<div data-role="header">
+		<h1 class="Instapol"><span>Instapol</span></h1>
+	</div>
+<!-- 	<a href="#question" data-role="button" data-theme="b" data-transition="pop">Enter</button>  -->
+	<p><a href="#question" data-role="button">Question</a></p>
+</div>
+
+<div data-role="page" id="question">
 
   <div data-role="header">
     <h1 class="Instapol"><span>Instapol</span></h1>
   </div>
-<select class="hide"></select>
-  
+  <div data-role="content">
     <form action="#" method="get">
-     
+
      <div data-role="fieldcontain">
     <fieldset data-role="controlgroup">
     	<legend>Choose a pet:</legend>
@@ -32,15 +33,19 @@
 </div>
 
 
-     
-     
+
+
+
     <div class="ui-body ui-body-b">
       <fieldset class="ui-grid-a">
-        <button type="submit" data-theme="a" data-transition="pop">Order Ice Cream</button>     
+        <button type="submit" data-theme="a" data-transition="pop">Submit</button>     
       </fieldset>
     </div>
-     
   </div>
 
 </div>
+
+</body>
+</html>
+
 

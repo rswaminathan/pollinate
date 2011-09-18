@@ -11,7 +11,7 @@
 
 
 <h1>
-  <a href="http://960.gs/"><img src="/images/Instapol-logo.png" alt="Instapol-logo" width="411" height="142" /></a>
+  <a href="<%= root_url %>"><img src="<%= root_url %>images/Instapol-logo.png" alt="Instapol-logo" width="411" height="142" /></a>
 </h1>
 <div class="container_12">
   <h2>
@@ -32,10 +32,6 @@
 	        <% end %>
 	Question <%= index+1 %>: <strong><%= question.name %></strong><br> 
 	    <% end -%>
-		<% if  (question.answers.length > 0) %>
-		Result: 
-	    Yes: <%= question.answers.find_all_by_result().length %>
-	    No: <%= question.answers.find_all_by_result("0").length %>
 		</br>
         <script>
             $("#begin_button").click(function(){
@@ -43,9 +39,6 @@
             })
             </script>
 		
-	        <% else %>
-
-		        <% end %>
 
 	<% end %>
 	<br></br>

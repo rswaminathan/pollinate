@@ -3,6 +3,17 @@ class QuestionsController < ApplicationController
     def index
     end
 
+
+    def enable
+        @question = Question.find(params[:question_id])
+        @question.enabled = !@question.enabled
+        if @question.save
+            flash[:success] = "Question changed"
+        else
+            flash[:error] = "Can't be enabled"
+        end
+    end
+
     def new
         @presentation = Presentation.find(params[:presentation_id])
         @question = @presentation.questions.build

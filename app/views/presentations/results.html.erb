@@ -1,6 +1,13 @@
 Name: <%= @presentation.name %><br>
 <%= @presentation.questions.each do |question| %><br>
-    Question: <%= question.name %><br>
+    Question: <%= question.name %><br> 
+    <%= form_tag presentation_question_enable_path(@presentation, question) do |f| -%>
+        <% if question.enabled == false %>
+            <%= submit_tag "Enable"%>
+        <% else %>
+            <%= submit_tag "Disable"%>
+    <% end %>
+    <% end -%>
     Result: <br>
     Yes: <%= question.answers.find_all_by_result("1").length %>
     No: <%= question.answers.find_all_by_result("0").length %>

@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
         if @answer.save
             flash[:success] = "Saved your answer."
         else
-            flash[:error] = "Something went wrong when saving your answer. Try again."
+            flash[:error] = "An Terrible Error has Occured. Try again."
         end
         redirect_to presentation_path(@presentation)
     end

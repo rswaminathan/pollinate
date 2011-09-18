@@ -24,10 +24,10 @@ class PresentationsController < ApplicationController
     def create
         @presentation = Presentation.create(params[:presentation])
         if @presentation.save
-            flash[:success] = "Created yo presentation."
+            flash[:success] = "Presentation Created"
             redirect_to new_presentation_question_path(@presentation)
         else
-            flash[:error] = "Check yo errors."
+            flash[:error] = "A Terrible Error has Occured."
         end
     end
 

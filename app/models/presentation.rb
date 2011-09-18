@@ -1,5 +1,15 @@
 class Presentation < ActiveRecord::Base
     has_many :questions
+
+
+        def not_completed(cookie)
+            answered_questions = Set.new questions.map({|q|
+                q.answers.where(:cookie => cookie)
+            }).flatten
+            enabled_questions = Set.new questions.enabled
+           (enabled_questions - answered_questions).to_a
+        end
+
 end
 
 # == Schema Information

@@ -12,6 +12,10 @@ gem 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
+group :development do
+    gem 'pry'
+end
+
 # Deploy with Capistrano
 # gem 'capistrano'
 

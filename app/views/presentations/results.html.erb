@@ -32,10 +32,6 @@
 	        <% end %>
 	Question <%= index+1 %>: <strong><%= question.name %></strong><br> 
 	    <% end -%>
-		<% if  (question.answers.length > 0) %>
-		Result: 
-	    Yes: <%= question.answers.find_all_by_result().length %>
-	    No: <%= question.answers.find_all_by_result("0").length %>
 		</br>
         <script>
             $("#begin_button").click(function(){
@@ -43,9 +39,6 @@
             })
             </script>
 		
-	        <% else %>
-
-		        <% end %>
 
 	<% end %>
 	<br></br>

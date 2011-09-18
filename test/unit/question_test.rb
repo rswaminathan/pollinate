@@ -8,6 +8,7 @@ class QuestionTest < ActiveSupport::TestCase
 end
 
 
+
 # == Schema Information
 #
 # Table name: questions
@@ -18,5 +19,6 @@ end
 #  updated_at      :datetime
 #  presentation_id :integer
 #  enabled         :boolean         default(FALSE)
+#  choices         :string(255)
 #
 

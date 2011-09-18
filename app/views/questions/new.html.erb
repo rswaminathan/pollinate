@@ -7,6 +7,18 @@
 <%= stylesheet_link_tag "demo1.css" %>
 <%= javascript_include_tag "presenter_questions.js" %>
 
+<%= semantic_form_for [@presentation, @question] do |form| %>
+    <%= form.inputs :name => "Create a question" do %>
+        <%= form.input :name%>
+        <%= form.semantic_fields_for "choices" do |choice| %>
+            <%= choice.inputs :description1 %>
+            <%= choice.inputs :description2 %>
+            <%= choice.inputs :description3 %>
+            <%= choice.inputs :description4 %>
+            <%= choice.inputs :description5 %>
+        <% end %>
+        <%= form.submit "Create Question" %>
+    <% end %>
 
 <% end %>
 
@@ -50,8 +62,14 @@
 	    Question <%= index+1 %>: <strong><%= question.name %></strong><br> 
 	<% end %>
 
+<<<<<<< HEAD
+<% @presentation.questions.each_with_index do |question, index| %><br>
+    Question <%= index+1 %>: <%= question.name %><br>
+<% end %>
+=======
     </div> 
     <h5 class="footer">&copy; 2011<a title="copyright" href="http://www.chuckmcquilkin.com/"> The Team</a> | <a href="#">About InstaPol</a> | <a title="credit" href="http://perishablepress.com/">Perishable Press</a></h5> 
   </div>
   <!-- end .grid_12 -->
   </div>
+>>>>>>> 9f0f2ac77ed54abfdecb9f49f1ec9bcc1120860a

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110918043101) do
+ActiveRecord::Schema.define(:version => 20110918111451) do
 
   create_table "answers", :force => true do |t|
     t.string   "ip"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20110918043101) do
     t.datetime "updated_at"
     t.integer  "presentation_id"
     t.boolean  "enabled",         :default => false
+    t.string   "choices"
   end
 
 end

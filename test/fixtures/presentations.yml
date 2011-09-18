@@ -8,6 +8,7 @@ two:
   time: 2011-09-17 11:02:28
   name: MyString
 
+
 # == Schema Information
 #
 # Table name: presentations
@@ -17,5 +18,7 @@ two:
 #  name       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  latitude   :float
+#  longitude  :float
 #
 

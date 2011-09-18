@@ -4,6 +4,13 @@
 <%= semantic_form_for [@presentation, @question] do |form| %>
     <%= form.inputs :name => "Create a question" do %>
         <%= form.input :name%>
+        <%= form.semantic_fields_for "choices" do |choice| %>
+            <%= choice.inputs :description1 %>
+            <%= choice.inputs :description2 %>
+            <%= choice.inputs :description3 %>
+            <%= choice.inputs :description4 %>
+            <%= choice.inputs :description5 %>
+        <% end %>
         <%= form.submit "Create Question" %>
     <% end %>
 
@@ -14,6 +21,6 @@
 </br> </br>
 <a href = "#"> </a>
 
-<%= @presentation.questions.each_with_index do |question, index| %><br>
+<% @presentation.questions.each_with_index do |question, index| %><br>
     Question <%= index+1 %>: <%= question.name %><br>
 <% end %>

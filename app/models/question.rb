@@ -5,8 +5,11 @@ class Question < ActiveRecord::Base
     default_scope :order => 'created_at ASC'
     scope :enabled, where(:enabled => true)
 
+    serialize :choices
+
 
 end
+
 
 
 
@@ -20,5 +23,6 @@ end
 #  updated_at      :datetime
 #  presentation_id :integer
 #  enabled         :boolean         default(FALSE)
+#  choices         :string(255)
 #
 

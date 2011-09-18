@@ -7,6 +7,7 @@ class PresentationTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: presentations
@@ -16,5 +17,7 @@ end
 #  name       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  latitude   :float
+#  longitude  :float
 #
 

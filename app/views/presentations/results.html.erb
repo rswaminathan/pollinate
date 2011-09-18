@@ -14,10 +14,13 @@ Name: <%= @presentation.name %><br>
 <% end %>
 <br>
 <%= link_to "Create more questions", new_presentation_question_path(@presentation) %>
+
+</br>
+	Audience Link: <%= link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) %><br>
+</br>
 <button id="btnInit">
-    click this to update yo shit
-</div>
-Audience Link: <%= link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) %><br>
+    Update Location
+</button>
 <script>  
     jQuery(window).ready(function(){  
         jQuery("#btnInit").click(initiate_geolocation);  

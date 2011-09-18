@@ -1,23 +1,11 @@
-<%= javascript_include_tag "jquery-1.4.2.min.js" %> 
-<%= javascript_include_tag "jqtouch.js", "jqt.location.js", "home.js" %> 
+<%= javascript_include_tag "jquery.mobile-1.0b3.js" %>
+<script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
 
-<!DOCTYPE html> 
-<html> 
-  <head> 
-  <title>Instapol</title> 
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
-  <link rel="stylesheet" href="Instapol.css" />
-  <script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="apple-touch-startup-image" href="startup.png" />
-</head> 
-<body> 
 
 <div data-role="page" id="question">
 
   <div data-role="header" class="header">
-    <h1 class="Instapol"><span>Instapol</span></h1>
+    <h1 class="Instapol"> <a ref ="http://www.google.com/"> <span>Instapol</span> </a> </h1> 
   </div>
   <div data-role="content">
     <form action="#" method="get">
@@ -42,13 +30,26 @@
      
     <div class="ui-body ui-body-b">
       <fieldset class="ui-grid-a">
-        <button type="submit" data-theme="a" data-transition="pop">Submit</button>    
+        <a href="#thanks" data-theme="a" data-icon="arrow-r" data-role="button" data-transition="pop">Submit</a>   
       </fieldset>
 
   </div>
 
 </div>
 
+<div data-role="page" id="thanks">
+
+	<div data-role="header" class="header" data-nobackbtn=”false” >
+		<h1 class="Instapol"><span>Instapol</span></h1>
+	</div>
+  	<div data-role="content">	
+	     <p class="type-interior">Thanks for submitting a question!</p>
+	</div>
+	
+</div>
+
 </body>
 </html>
+
+
 

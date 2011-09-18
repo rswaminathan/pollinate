@@ -1,3 +1,6 @@
+<%= javascript_include_tag "presenter_questions.js" %>
+
+
 <%= semantic_form_for [@presentation, @question] do |form| %>
     <%= form.inputs :name => "Create a question" do %>
         <%= form.input :name%>
@@ -7,3 +10,5 @@
 Make your audience go here: <%= link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) %><br>
 Get your results here: <%= link_to "#{presentation_results_url(@presentation)}", presentation_results_path(@presentation) %>
 
+</br> </br>
+<a href = "#"> </a>

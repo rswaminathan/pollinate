@@ -1,21 +1,16 @@
-<%= javascript_include_tag "jquery-1.4.2.min.js" %> 
 <%= javascript_include_tag "jqtouch.js", "jqt.location.js", "home.js" %> 
+<%= javascript_include_tag "jquery.mobile-1.0b3.js" %>
 
 
-
-
-	<div data-role="page" id="home">
-
-		<div data-role="header" class="header">
-			<h1 class="Instapol"><span>Instapol</span></h1>
-		</div>
-	  	<div data-role="content">	
-		     <div data-role="fieldcontain">
-	       		<label for="name">Enter Conference Tag (please ask your presenter):</label>
-	       		<input type="text" name="name" id="name" value=""  />
-	     	 </div>
-	<!-- 	<a href="#question" data-role="button" data-theme="b" data-transition="pop">Enter</button>  -->
-		<p><a href="#question" data-theme="a" data-icon="arrow-r" data-role="button">Enter</a></p>
-		</div>
-
+<div data-role="page" id="home">
+	<div data-role="header" class="header">
+		<h1 class="Instapol"><span>Instapol</span></h1>
 	</div>
+  	<div data-role="content">	
+	     <div data-role="fieldcontain">
+       		<label for="name">Enter Conference Tag (please ask your presenter):</label>
+       		<input type="text" name="name" id="home_form" value=""  />
+     	 </div>
+	<p><a id="enter_button" data-theme="a" data-icon="arrow-r" data-role="button">Enter</a></p>
+	</div>	
+</div>

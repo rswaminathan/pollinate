@@ -4,6 +4,7 @@ Pollinate::Application.routes.draw do
     root :to => 'presentations#new'
     match	'home',					:to => 'pages#home'
     match	'experiment',					:to => 'pages#experiment'
+    match	'mapper',					:to => 'pages#mapper'
 
   resources :presentations do
       get 'results'

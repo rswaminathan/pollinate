@@ -11,6 +11,7 @@ def mapper
 end
 
 def begin
+    redirect_to new_presentation_path if mobile_browser?
 end
 
 end

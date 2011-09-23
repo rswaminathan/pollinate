@@ -7,6 +7,9 @@ def experiment
 end
 
 def homenew 
+     if mobile_browser?
+         redirect_to 'begin'
+     end
 end
 
 def mapper
@@ -14,11 +17,6 @@ def mapper
 end
 
 def begin
-     if mobile_browser?
-         render 'begin'
-     else
-        redirect_to new_presentation_path
-     end
 end
 
 end

@@ -3,6 +3,8 @@ Pollinate::Application.routes.draw do
   # first created -> highest priority.
     root :to => 'pages#begin'
     match	'home',					:to => 'pages#home'
+    match	'homenew',					:to => 'pages#homenew'
+    
     match	'begin',					:to => 'pages#begin'
     
     match	'experiment',					:to => 'pages#experiment'

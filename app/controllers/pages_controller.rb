@@ -6,6 +6,9 @@ end
 def experiment
 end
 
+def homenew 
+end
+
 def mapper
   @information = params[:id];
 end

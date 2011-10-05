@@ -7,10 +7,9 @@
 <div data-role="page" id="question">
     <div data-role="header" class="header" role="banner">
         <h1 class="Instapol"> <span>Instapol</span> </h1> 
-        <a href= "#home" data-icon="arrow-r" >Home</a>
+        <a href= "#home" data-icon="arrow-r" data-transition="slide" >Home</a>
     </div>
 
-    <div data-role="content">
         <div id="question_form">
             <% if @question %>
                 <%= render @question %>
@@ -23,8 +22,6 @@
                 </div>
             <% end %>
         </div>
-
-    </div>
 
 </div>
 

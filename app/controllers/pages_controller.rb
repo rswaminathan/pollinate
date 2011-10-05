@@ -8,7 +8,7 @@ end
 
 def homenew 
      if mobile_browser?
-         redirect_to 'begin'
+         redirect_to '/begin'
      end
 end
 

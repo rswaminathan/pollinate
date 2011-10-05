@@ -1,0 +1,25 @@
+<div class="content">
+	 <div data-role="content">
+    		<h1><%= @question.name %></h1>
+		<%= semantic_form_for [@presentation, @question, @question.answers.build] do |form| %>
+			<fieldset data-role="controlgroup">
+				<% @question.choices.invert.each do |choice_number,choice_name| %>
+					<input type="radio" name="radio-choice-1" id="radio-choice-<%= choice_number %>" value="<%= choice_number %>" />
+					<label for="radio-choice-<%= choice_number %>"><%= choice_name %></label>
+				<% end %>
+			</fieldset>
+			</div>
+			<div class="ui-body ui-body-b">
+				<fieldset class="ui-grid-solo">
+			     		<button type="submit" data-theme="a" id="submit_answer_button">Submit Answer</button>
+			   	</fieldset>
+		<% end %>
+	 </div>
+</div>
+
+
+<script>
+	$("#submit_answer_button").click(function(){
+		$("form").submit();
+	})
+</script>

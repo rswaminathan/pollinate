@@ -32,7 +32,6 @@ div#top_content_wrap {
 	background: linear-gradient(top, #123 0%,#23538A 100%);
 }
 div#top_content { 
-	background: url('../images/light_shadow.gif') no-repeat bottom;
 	padding-top: 55px; 
 }
 	div#top_content div#app_screenshot {
@@ -62,6 +61,7 @@ div#top_content {
 		width: 590px;
 		margin-top: 15px;
 		text-shadow: 1px 1px 1px #000;
+		color:white;
 	}
 	#app_description a { color: #24A9CD; }
 	#app_description a:hover { color: #00BAE8; }
@@ -102,7 +102,7 @@ div#top_content {
 				margin-left: 30px;
 				line-height: 19px;
 			}
-			div#top_content div#app_description div.actions p b { display: block; color: #444; }
+			div#top_content div#app_description div.actions p b { display: block; color: #ddd; }
 div#page_seperator {
 	height: 2px;
 	width: 100%;

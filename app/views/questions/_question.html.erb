@@ -1,19 +1,25 @@
-
 <div class="content">
     <h1><%= @question.name %></h1>
 <%= semantic_form_for [@presentation, @question, @question.answers.build] do |form| %>
-        <%= form.inputs do %>
+   <%= form.inputs do %>
             <fieldset data-role="controlgroup">
                 <%=  form.input :result, :as => :radio, :collection => @question.choices.invert, :label => false %>
             </fieldset>
         <% end %>
 
-        <div class="ui-body ui-body-b">
-            <fieldset class="ui-grid-a">
-                <%= form.submit "Submit Answer" %> 
-            </fieldset>
-        </div>
+	<div class="ui-body ui-body-b">
+	   <fieldset class="ui-grid-solo">
+	     <div class="ui-block-a"><button type="submit" data-theme="a" id="submit_answer_button">Submit Answer</button></div>
+	   </fieldset>
+	 </div>
 
+	
 <% end %>
 
-    </div>
+</div>
+
+<script>
+	$("#submit_answer_button").click(function(){
+		$("form").submit();
+	})
+</script>

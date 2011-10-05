@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
     belongs_to :presentation
     has_many :answers
-
+    before_save :delete_null_choices
     default_scope :order => 'created_at ASC'
     scope :enabled, where(:enabled => true)
 
@@ -16,6 +16,10 @@ class Question < ActiveRecord::Base
             counts[a.result][1] += 1
         end
         counts
+    end
+    
+    def delete_null_choices
+        choices.delete_if { |k,v| v == "" }
     end
 
 end

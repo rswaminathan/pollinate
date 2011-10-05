@@ -3,7 +3,7 @@
     		<h1><%= @question.name %></h1>
 		<%= semantic_form_for [@presentation, @question, @question.answers.build] do |form| %>
 			<fieldset data-role="controlgroup">
-				<% @question.choices.invert.each do |choice_number,choice_name| %>
+				<% @question.choices.each do |choice_number,choice_name| %>
 					<input type="radio" name="answer[result]" id="answer_result_<%= choice_number %>" value="<%= choice_number %>" />
 					<label for="answer_result_<%= choice_number %>"><%= choice_name %></label>
 				<% end %>

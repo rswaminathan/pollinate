@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111018084058) do
+ActiveRecord::Schema.define(:version => 20111018213623) do
 
   create_table "answers", :force => true do |t|
     t.string   "ip"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20111018084058) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "secret_token"
+    t.string   "twitter_handle"
+    t.string   "linkedIn_handle"
   end
 
   create_table "questions", :force => true do |t|

@@ -1,44 +1,23 @@
-<% content_for :head do %>
- <title>InstaPol Admin</title>
+<div class="row">
+<div class="span16">
+	<div class="well">
+		<%= semantic_form_for @presentation do |form| %>
+		    <%= form.inputs do %>
+		        
+				<div style="float:center">
+				<div style="float:left">
+			   		<%= form.input :name, :label => "Name  "%>
+				</div>
+				<div style="float:left">		
+		        		<%= form.submit "Create", :class => "btn primary small" %> 
+				</div>
+				</div>
+			
+		    <% end %>
 
-<%= stylesheet_link_tag "reset.css" %>
-<%= stylesheet_link_tag "text.css" %>
-<%= stylesheet_link_tag "960.css" %>
-<%= stylesheet_link_tag "demo1.css" %>
+		<% end %>
+	</div>
+</div>
 
 
-<% end %>
 
-
-<h1>
-  <a href="http://960.gs/"><img src="/images/Instapol-logo.png" alt="Instapol-logo" width="411" height="142" /></a>
-</h1>
-<div class="container_12">
-  <h2>
-    New Presentation
-  </h2>
-  <div class="grid_12">
-  
-    <div id="placeholder"style="width:925px;height:150px;">
-    	
-	<%= semantic_form_for @presentation do |form| %>
-	    <%= form.inputs do %>
-	        <h1>
-			<div style="float:center">
-			<div style="float:left">
-		   		<%= form.input :name, :label => "Name  "%>
-			</div>
-			<div style="float:left">		
-	        		<%= form.submit "Create" %> 
-			</div>
-			</div>
-		</h1>
-	    <% end %>
-		
-	<% end %>
-
-    </div> 
-    <h5 class="footer">&copy; 2011 <a title="copyright" href="http://instapol.heroku.com/">Home</a> | <a href="http://losangeles.mobilehackdays.com/blog/instapol-team-is-the-mobilehackdays-winner/">The Team</a> | <a title="contact" href="mailto:&#105;&#110;&#102;&#111;&#064;&#105;&#110;&#115;&#116;&#097;&#112;&#111;&#108;&#046;&#099;&#111;&#109;">Cotact Us</a></h5> 
-  </div>
-  <!-- end .grid_12 -->
-  </div>

@@ -31,22 +31,36 @@ class QuestionsController < ApplicationController
         @question = @presentation.questions.build(params[:question])
         if @question.save
             flash[:success] = "Your question has been saved. You may create another one."
-            redirect_to dashboard_presentations_path(:token => @presentation[:secret_token])
+            redirect_to dashboard_path(@presentation)
         else
             flash[:error] = "Something went wrong"
         end
     end
 
+    def update
+        @presentation = Presentation.find(params[:presentation_id])
+        @question = Question.find(params[:id])
+        @question.update_attributes(params[:question])
+        if @question.save
+            flash[:success] = "Your question has been saved."
+        else
+            flash[:error] = "Something went wrong"
+        end
+        redirect_to presentation_results_path(@presentation)
+    end
+    
     def location
     end
     
-    def update
-    end
 
     def edit
+      @presentation = Presentation.find(params[:presentation_id])
+       @question = Question.find(params[:id])
     end
 
     def destroy
+      @presentation = Presentation.find(params[:presentation_id])
+       @question = Question.find(params[:id])
     end
 
     def show

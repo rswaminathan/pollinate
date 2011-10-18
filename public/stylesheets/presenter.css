@@ -61,3 +61,11 @@ background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(234,234,234,1) 1
 background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%); /* IE10+ */
 background: linear-gradient(top, rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 ); /* IE6-9 */}
+
+
+
+
+#new_question{
+
+}
+

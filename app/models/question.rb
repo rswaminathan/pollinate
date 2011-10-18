@@ -7,6 +7,8 @@ class Question < ActiveRecord::Base
 
     serialize :choices
 
+    def show
+    end
     def get_result_count
         counts = []
         choices.to_a.each_with_index do |c, i|

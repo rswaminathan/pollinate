@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 
+    layout 'mobile'
 
 def home
 end
@@ -22,10 +23,10 @@ def geturl
     latitude = params[:latitude].to_f
     longitude = params[:longitude].to_f
     @presentation = Presentation.closest_presentation(latitude, longitude)
-    if @presentation 
+    if @presentation
         redirect_to @presentation
     else
-        render 'home'
+        redirect_to mobile_home_path
     end
 end
 

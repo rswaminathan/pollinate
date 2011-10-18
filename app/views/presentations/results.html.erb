@@ -1,34 +1,31 @@
 <div class="row">
-	
+	<div id = "link1"><%= link_to "Add New", new_presentation_question_path(@presentation), :remote => true %>
+	</div>
 	<% @presentation.questions.each_with_index do |question, index| %>
         <div class="span4">
 		<div class="questions">
 			<div class="questions-header">
 	          		Question <%= index+1 %>
 				<div class="questions-header-nav">
-			        	<%= link_to "FAQ", '/faq' %>
+			        	<%= link_to "edit", edit_presentation_question_path(@presentation, question) %>
 				</div>
 			</div>
 			
 			<div class="questions-screen">
 				<h3> <%= question.name %> </h3>
 				<ul>
-					 <% question.choices.each do |a,b| %> 
-						<li > <%= b %> </li>
+					 <% question.choices.each do |question_number, question_name| %> 
+						<li > <%= question_name %> </li>
 					<% end %>
 				</ul>
 			</div>
 		</div>
         </div>
 <% end %>
-<div id="dialog" title="Dialog Title">I'm in a dialog</div>
-
 
 </div>
 
- <script>
-  $(document).ready(function() {
-    $("#dialog").dialog();
-  });
-  </script>
+<div id="dialog" title="Create a Question"></div>
+
+
 

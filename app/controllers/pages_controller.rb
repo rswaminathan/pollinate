@@ -9,7 +9,7 @@ def experiment
 end
 
 def homenew 
-    if mobile_version?
+    if mobile_browser?
          redirect_to '/begin'
     end
 end

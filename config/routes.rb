@@ -5,6 +5,7 @@ Pollinate::Application.routes.draw do
     match	'home',					:to => 'pages#home', :as => 'mobile_home'
     match	'homenew',					:to => 'pages#homenew'
     match 'geturl', :to => 'pages#geturl'
+    match 'dashboard/:token', :to => 'presentations#dashboard'
 
     match	'begin',					:to => 'pages#begin'
 

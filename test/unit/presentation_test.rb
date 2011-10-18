@@ -8,16 +8,19 @@ class PresentationTest < ActiveSupport::TestCase
 end
 
 
+
+
 # == Schema Information
 #
 # Table name: presentations
 #
-#  id         :integer         not null, primary key
-#  time       :datetime
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  latitude   :float
-#  longitude  :float
+#  id           :integer         not null, primary key
+#  time         :datetime
+#  name         :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#  latitude     :float
+#  longitude    :float
+#  secret_token :string(255)
 #
 

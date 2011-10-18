@@ -21,6 +21,12 @@ class PresentationsController < ApplicationController
     def location
     end
     
+
+    def dashboard
+        @presentation = Presentation.find_by_secret_token(params[:token])
+        @questions = @presentation.questions
+    end
+
     def create
         @presentation = Presentation.create(params[:presentation])
         if @presentation.save
@@ -49,7 +55,7 @@ class PresentationsController < ApplicationController
     private
     def resolve_layout 
       case action_name
-        when "results"
+        when ["results", "dashboard"]
           "presenter"
         else
           "mobile"

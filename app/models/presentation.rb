@@ -1,5 +1,6 @@
 class Presentation < ActiveRecord::Base
     has_many :questions
+    before_save :create_secret_token
 
     def not_completed(cookie)
         answers = (questions.map {|q|
@@ -8,6 +9,11 @@ class Presentation < ActiveRecord::Base
         answered_questions = Set.new(answers.map &:question)
         enabled_questions = Set.new questions.enabled
         (enabled_questions - answered_questions).to_a
+    end
+
+    def create_secret_token
+        secret_token = rand(36**8).to_s(36)
+        
     end
 
     class << self
@@ -30,16 +36,19 @@ class Presentation < ActiveRecord::Base
 end
 
 
+
+
 # == Schema Information
 #
 # Table name: presentations
 #
-#  id         :integer         not null, primary key
-#  time       :datetime
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  latitude   :float
-#  longitude  :float
+#  id           :integer         not null, primary key
+#  time         :datetime
+#  name         :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#  latitude     :float
+#  longitude    :float
+#  secret_token :string(255)
 #
 

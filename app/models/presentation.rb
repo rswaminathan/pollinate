@@ -1,15 +1,31 @@
 class Presentation < ActiveRecord::Base
     has_many :questions
 
+    def not_completed(cookie)
+        answers = (questions.map {|q|
+            q.answers.where(:cookie => cookie)
+        }).flatten
+        answered_questions = Set.new(answers.map &:question)
+        enabled_questions = Set.new questions.enabled
+        (enabled_questions - answered_questions).to_a
+    end
 
-        def not_completed(cookie)
-            answers = (questions.map {|q|
-                q.answers.where(:cookie => cookie)
-            }).flatten
-            answered_questions = Set.new(answers.map &:question)
-            enabled_questions = Set.new questions.enabled
-           (enabled_questions - answered_questions).to_a
+    class << self
+
+        def closest_presentation(latitude, longitude)
+            notnil =  all.reject{|p| p.latitude == nil || p.longitude == nil}
+            remove_large = notnil.reject{|p| angle(p.latitude, p.longitude, latitude, longitude) == 2*Math::PI}
+            remove_large.sort_by{ |p| angle(p.latitude, p.longitude, latitude, longitude)}.first
         end
+
+        def angle(lat1, long1, lat2, long2)
+            largest_allowed_angle = 1/6378.1 #1 km angle
+            angle = Math.acos(Math.sin(lat1)*Math.sin(lat2) +
+                      Math.cos(lat1)*Math.cos(lat2)*Math.cos(long2-long1))
+            angle < largest_allowed_angle ? angle : 2*Math::PI
+        end
+
+    end
 
 end
 

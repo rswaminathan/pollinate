@@ -1,6 +1,6 @@
 class Presentation < ActiveRecord::Base
     has_many :questions
-    before_save :create_secret_token
+    after_create :create_secret_token
 
     def not_completed(cookie)
         answers = (questions.map {|q|
@@ -11,10 +11,6 @@ class Presentation < ActiveRecord::Base
         (enabled_questions - answered_questions).to_a
     end
 
-    def create_secret_token
-        secret_token = rand(36**8).to_s(36)
-        
-    end
 
     class << self
 
@@ -31,6 +27,14 @@ class Presentation < ActiveRecord::Base
             angle < largest_allowed_angle ? angle : 2*Math::PI
         end
 
+    end
+
+    private
+
+    def create_secret_token
+        self.secret_token = rand(36**8).to_s(36)
+        save
+        
     end
 
 end

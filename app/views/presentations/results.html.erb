@@ -1,31 +1,32 @@
 <div class="row">
-	<div id = "link1"><%= link_to "Add New", new_presentation_question_path(@presentation), :remote => true %>
-	</div>
-	<% if @presentation.questions %>
-	<% @presentation.questions.each_with_index do |question, index| %>
-	<% question_number = index + 1 %>
-        <div class="span4">
-		<div class="questions">
-			<div class="questions-header">
-	          		Question <%= question_number %>
-				<div class="questions-header-nav">
-			        	<%= link_to "Edit", edit_presentation_question_path(@presentation, question), :remote => true %>
-					<%= link_to "Delete", presentation_question_path(@presentation, question), :method => :delete %>
-				</div>
-			</div>
-			
-			<div class="questions-screen">
-				<h3> <%= question.name %> </h3>
-				<ul>
-					 <% question.choices.each do |question_number, question_name| %> 
-						<li > <%= question_name %> </li>
-					<% end %>
-				</ul>
-			</div>
-		</div>
-        </div>
-	<% end %>
-	<% end %>
+
+    <div id = "link1"><%= link_to "Add New", new_presentation_question_path(@presentation), :remote => true %>
+    </div>
+    <% if !@presentation.questions.empty? %>
+        <% @presentation.questions.each_with_index do |question, index| %>
+            <div class="span4">
+                <div class="questions">
+                    <div class="questions-header">
+                        Question <%= index+1 %>
+                        <div class="questions-header-nav">
+                            <%= link_to "edit", edit_presentation_question_path(@presentation, question) %>
+				<%= link_to "Delete", presentation_question_path(@presentation, question), :method => :delete %>
+
+                        </div>
+                    </div>
+
+                    <div class="questions-screen">
+                        <h3> <%= question.name %> </h3>
+                        <ul>
+                            <% question.choices.each do |question_number, question_name| %> 
+                                <li > <%= question_name %> </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
 
 </div>
 

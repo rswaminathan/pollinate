@@ -25,13 +25,14 @@ class PresentationsController < ApplicationController
     def dashboard
         @presentation = Presentation.find_by_secret_token(params[:token])
         @questions = @presentation.questions
+        render 'results'
     end
 
     def create
         @presentation = Presentation.create(params[:presentation])
         if @presentation.save
             flash[:success] = "Presentation Created"
-            redirect_to new_presentation_question_path(@presentation)
+            redirect_to dashboard_path(@presentation)
         else
             flash[:error] = "A Terrible Error has Occured."
         end

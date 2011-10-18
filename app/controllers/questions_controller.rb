@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
         @question = @presentation.questions.build(params[:question])
         if @question.save
             flash[:success] = "Your question has been saved. You may create another one."
-            redirect_to presentation_results_path(@presentation)
+            redirect_to dashboard_path(@presentation)
         else
             flash[:error] = "Something went wrong"
         end

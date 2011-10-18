@@ -9,7 +9,9 @@ def experiment
 end
 
 def homenew 
+    if mobile_version?
          redirect_to '/begin'
+    end
 end
 
 def mapper

@@ -55,7 +55,7 @@ class PresentationsController < ApplicationController
     private
     def resolve_layout 
       case action_name
-        when ["results", "dashboard"]
+        when "results", "dashboard"
           "presenter"
         else
           "mobile"

@@ -1,0 +1,17 @@
+<%= @presentation.name %>
+<%= @question.name %>
+</br>
+<%= semantic_form_for [@presentation, @question] do |form| %>
+        <%= form.inputs  do %>
+            <%= form.input :name%>
+            <%= form.semantic_fields_for "choices" do |choice| %>
+                <%= choice.inputs :"0", :required => false, :label => false %>
+                <%= choice.inputs :"1" %>
+                <%= choice.inputs :"2" %>
+                <%= choice.inputs :"3" %>
+                <%= choice.inputs :"4" %>
+            <% end %>
+            <%= form.submit "Edit Question" %>
+        <% end %>
+
+    <% end %>

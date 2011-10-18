@@ -3,12 +3,13 @@
 	</div>
 	<% if @presentation.questions %>
 	<% @presentation.questions.each_with_index do |question, index| %>
+	<% question_number = index + 1 %>
         <div class="span4">
 		<div class="questions">
 			<div class="questions-header">
-	          		Question <%= index+1 %>
+	          		Question <%= question_number %>
 				<div class="questions-header-nav">
-			        	<%= link_to "edit", edit_presentation_question_path(@presentation, question) %>
+			        	<%= link_to "Edit", edit_presentation_question_path(@presentation, question)%>
 				</div>
 			</div>
 			

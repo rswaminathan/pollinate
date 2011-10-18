@@ -26,6 +26,9 @@
 
 }
 
+.question-header-enabled{
+	background: #72d073;
+}
 .questions-header-nav{
 	float: right;
 }
@@ -47,10 +50,10 @@
 }
 
 .questions-screen ul{
+	margin-left: 0em;
 	margin-top: 0.8em;
 	background:#eee;
 	border: 1px solid #000;
-	margin-left: 4em;
 	margin-bottom: 0.5em;
 	border-radius:0.5em;
 background: rgb(255,255,255); /* Old browsers */

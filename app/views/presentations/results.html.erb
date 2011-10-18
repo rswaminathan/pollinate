@@ -1,16 +1,16 @@
 <div class="row">
 
-    <div id = "link1"><%= link_to "Add New", new_presentation_question_path(@presentation), :remote => true %>
+    <div id = "link1" class=" btn large primary"><%= link_to "Add New", new_presentation_question_path(@presentation), :remote => true %>
     </div>
     <% if !@presentation.questions.empty? %>
         <% @presentation.questions.each_with_index do |question, index| %>
             <div class="span4">
                 <div class="questions">
-                    <div class="questions-header">
+                    <div class="questions-header <%= question.enabled ? "question-header-enabled" : ""%>" >
                         Question <%= index+1 %>
                         <div class="questions-header-nav">
-                            <%= link_to "edit", edit_presentation_question_path(@presentation, question) %>
-				<%= link_to "Delete", presentation_question_path(@presentation, question), :method => :delete %>
+                            <%= link_to "edit", edit_presentation_question_path(@presentation, question), :remote => true %>
+				<%= link_to "Delete", presentation_question_path(@presentation, question), :method => :delete, :confirm => "Are you sure?" %>
 
                         </div>
                     </div>
@@ -22,7 +22,12 @@
                                 <li > <%= question_name %> </li>
                             <% end %>
                         </ul>
-                    </div>
+			<% if question.enabled %>
+				<%= link_to "Hide", presentation_question_enable_path(@presentation, question), :class => "btn default", :method => :post %>
+                    	<% else %>
+				<%= link_to "Reveal", presentation_question_enable_path(@presentation, question), :class => "btn default", :method => :post %>
+			<% end %>
+			</div>
                 </div>
             </div>
         <% end %>
@@ -32,6 +37,6 @@
 
 <div id="dialog" title="Create a Question"></div>
 
-<div id="edit-question" title="Edit this Question"> Hi </div>
+<div id="edit-question" title="Edit this Question"> </div>
 
 

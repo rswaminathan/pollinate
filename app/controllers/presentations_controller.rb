@@ -1,7 +1,7 @@
 class PresentationsController < ApplicationController
   layout :resolve_layout
     def results
-        @presentation = Presentation.find(params[:presentation_id])
+        @presentation = Presentation.find(params[:id])
         @questions = @presentation.questions
     end
 

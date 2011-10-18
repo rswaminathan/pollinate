@@ -14,11 +14,10 @@ class QuestionsController < ApplicationController
         @question = Question.find(params[:question_id])
         @question.enabled = !@question.enabled
         if @question.save
-            flash[:success] = "Question changed"
         else
             flash[:error] = "Can't be enabled"
         end
-        redirect_to presentation_results_path(@presentation)
+        redirect_to dashboard_path(@presentation)
     end
 
     def new
@@ -46,7 +45,7 @@ class QuestionsController < ApplicationController
         else
             flash[:error] = "Something went wrong"
         end
-        redirect_to presentation_results_path(@presentation)
+        redirect_to dashboard_path(@presentation)
     end
     
     def location
@@ -61,6 +60,12 @@ class QuestionsController < ApplicationController
     def destroy
       @presentation = Presentation.find(params[:presentation_id])
        @question = Question.find(params[:id])
+       if @question.delete
+           flash[:error] = "Your question has been deleted."
+       else
+           flash[:error] = "Something went wrong"
+       end
+        redirect_to dashboard_path(@presentation)
     end
 
     def show

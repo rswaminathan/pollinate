@@ -1,0 +1,45 @@
+
+
+
+<div class="container_12">
+  <h2>
+    Survey Results for <%= @presentation.name %>
+  </h2>
+  <div class="grid_12">
+  
+    <div id="placeholder"style="width:925px;">
+    		<% @presentation.questions.each_with_index do |question, index| %><br>
+	    
+	    <%= form_tag presentation_question_enable_path(@presentation, question) do |f| -%>
+	        <% if question.enabled == false %>
+                <div id="begin_button">
+	            <%= submit_tag "Begin"%>
+                </div>
+	        <% else %>
+	            <%= submit_tag "Stop"%>
+	        <% end %>
+	Question <%= index+1 %>: <strong><%= question.name %></strong><br> 
+	    <% end -%>
+		</br>
+        <script>
+            $("#begin_button").click(function(){
+                window.open("<%= presentation_question_chart_path(@presentation, question) %>")
+            })
+            </script>
+		
+
+	<% end %>
+	<br></br>
+	<%= link_to "Add Questions", new_presentation_question_path(@presentation) %>
+
+	</br></br>
+		Audience Link: <%= link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) %><br>
+	</br>
+	<button id="btnInit">
+	    Update Location
+	</button>
+
+    </div> 
+    <h5 class="footer">&copy; 2011<a title="copyright" href="http://instapol.heroku.com/">Home</a> | <a href="http://losangeles.mobilehackdays.com/blog/instapol-team-is-the-mobilehackdays-winner/">The Team</a> | <a title="contact" href="mailto:&#105;&#110;&#102;&#111;&#064;&#105;&#110;&#115;&#116;&#097;&#112;&#111;&#108;&#046;&#099;&#111;&#109;">Cotact Us</a></h5> 
+  </div>
+  </div>

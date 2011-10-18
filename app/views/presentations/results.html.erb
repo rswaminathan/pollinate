@@ -1,82 +1,24 @@
-<% content_for :head do %>
- <title>InstaPol Admin</title>
+<div class="row">
+        <div class="span4">
+		<div class="questions">
+			<div class="questions-header">
+	          		Heading
+				<div class="questions-header-nav">
+			        	<%= link_to "FAQ", '/faq' %>
+				</div>
+			</div>
+			
+			<div class="questions-screen">
+				<h3> What did you think of Mobile Hackathon? </h3>
+				<ul>
+					<li > It was awesome </li>
+					<li> It was exciting </li>
+					<li> It was fun </li>
+					<li> It got frustrating </li>
+					<li> I'm not sure I should be in the industry </li>
+				</ul>
+			</div>
+		</div>
+        </div>
 
-<%= stylesheet_link_tag "reset.css" %>
-<%= stylesheet_link_tag "text.css" %>
-<%= stylesheet_link_tag "960.css" %>
-<%= stylesheet_link_tag "demo1.css" %>
-
-
-<% end %>
-
-
-<h1>
-  <a href="<%= root_url %>"><img src="<%= root_url %>images/Instapol-logo.png" alt="Instapol-logo" width="411" height="142" /></a>
-</h1>
-<div class="container_12">
-  <h2>
-    Survey Results for <%= @presentation.name %>
-  </h2>
-  <div class="grid_12">
-  
-    <div id="placeholder"style="width:925px;">
-    		<% @presentation.questions.each_with_index do |question, index| %><br>
-	    
-	    <%= form_tag presentation_question_enable_path(@presentation, question) do |f| -%>
-	        <% if question.enabled == false %>
-                <div id="begin_button">
-	            <%= submit_tag "Begin"%>
-                </div>
-	        <% else %>
-	            <%= submit_tag "Stop"%>
-	        <% end %>
-	Question <%= index+1 %>: <strong><%= question.name %></strong><br> 
-	    <% end -%>
-		</br>
-        <script>
-            $("#begin_button").click(function(){
-                window.open("<%= presentation_question_chart_path(@presentation, question) %>")
-            })
-            </script>
-		
-
-	<% end %>
-	<br></br>
-	<%= link_to "Add Questions", new_presentation_question_path(@presentation) %>
-
-	</br></br>
-		Audience Link: <%= link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) %><br>
-	</br>
-	<button id="btnInit">
-	    Update Location
-	</button>
-
-    </div> 
-    <h5 class="footer">&copy; 2011<a title="copyright" href="http://instapol.heroku.com/">Home</a> | <a href="http://losangeles.mobilehackdays.com/blog/instapol-team-is-the-mobilehackdays-winner/">The Team</a> | <a title="contact" href="mailto:&#105;&#110;&#102;&#111;&#064;&#105;&#110;&#115;&#116;&#097;&#112;&#111;&#108;&#046;&#099;&#111;&#109;">Cotact Us</a></h5> 
-  </div>
-  <!-- end .grid_12 -->
-  </div>
-
-
-<script>  
-    jQuery(window).ready(function(){  
-        jQuery("#btnInit").click(initiate_geolocation);  
-    });  
-
-    function initiate_geolocation() {  
-        navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
-    }  
-
-    function handle_geolocation_query(position){
-            $.ajax({
-                type: "POST",
-                url: '/presentations/<%= @presentation.id %>',
-                data: { _method:'PUT', loc : JSON.stringify({lat : position.coords.latitude, lon : position.coords.latitude})},
-                dataType: 'json',
-                success: function(msg) {
-                    alert( "Data Saved: " + msg );
-                }
-            });
-
-    }  
-</script> 
+</div>

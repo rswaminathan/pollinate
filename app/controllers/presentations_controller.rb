@@ -1,5 +1,5 @@
 class PresentationsController < ApplicationController
-
+  layout :resolve_layout
     def results
         @presentation = Presentation.find(params[:presentation_id])
         @questions = @presentation.questions
@@ -45,5 +45,15 @@ class PresentationsController < ApplicationController
       @presentation.update_attributes!(:latitude => params[:lat], :longitude => params[:lon])
       redirect_to presentation_results_path(@presentation)
     end
-
+    
+    private
+    def resolve_layout 
+      case action_name
+        when "results"
+          "presenter"
+        else
+          "mobile"
+        end
+    end
+    
 end

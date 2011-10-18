@@ -1,6 +1,7 @@
 <div class="row">
 	<div id = "link1"><%= link_to "Add New", new_presentation_question_path(@presentation), :remote => true %>
 	</div>
+	<% if @presentation.questions %>
 	<% @presentation.questions.each_with_index do |question, index| %>
         <div class="span4">
 		<div class="questions">
@@ -21,7 +22,8 @@
 			</div>
 		</div>
         </div>
-<% end %>
+	<% end %>
+	<% end %>
 
 </div>
 

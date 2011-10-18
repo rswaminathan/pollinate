@@ -44,6 +44,7 @@ class PresentationsController < ApplicationController
     end
 
     def destroy
+      
     end
 
     def edit

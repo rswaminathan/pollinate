@@ -9,7 +9,8 @@
 			<div class="questions-header">
 	          		Question <%= question_number %>
 				<div class="questions-header-nav">
-			        	<%= link_to "Edit", edit_presentation_question_path(@presentation, question)%>
+			        	<%= link_to "Edit", edit_presentation_question_path(@presentation, question), :remote => true %>
+					<%= link_to "Delete", presentation_question_path(@presentation, question), :method => :delete %>
 				</div>
 			</div>
 			
@@ -30,5 +31,6 @@
 
 <div id="dialog" title="Create a Question"></div>
 
+<div id="edit-question" title="Edit this Question"> Hi </div>
 
 

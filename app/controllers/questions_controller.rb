@@ -39,28 +39,28 @@ class QuestionsController < ApplicationController
 
     def update
         @presentation = Presentation.find(params[:presentation_id])
-        @question = @presentation.questions.update_attributes(params[:question])
-        if @question.update_attributes(params[questio])
+        @question = Question.find(params[:id])
+        @question.update_attributes(params[:question])
+        if @question.save
             flash[:success] = "Your question has been saved."
-            redirect_to presentation_results_path(@presentation)
         else
             flash[:error] = "Something went wrong"
         end
+        redirect_to presentation_results_path(@presentation)
     end
     
     def location
     end
     
-    def update
-    end
 
     def edit
       @presentation = Presentation.find(params[:presentation_id])
        @question = Question.find(params[:id])
-       redirect_to presentation_results_path(@presentation)
     end
 
     def destroy
+      @presentation = Presentation.find(params[:presentation_id])
+       @question = Question.find(params[:id])
     end
 
     def show

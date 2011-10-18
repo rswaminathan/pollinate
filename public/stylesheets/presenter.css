@@ -1,9 +1,10 @@
+/* @override http://localhost:3000/stylesheets/presenter.css?1318922567 */
+
 /* @override http://localhost:3000/stylesheets/presenter.css?1318920416 */
 
 #main-page {
 	margin-top: 4em;
 	padding-bottom: 2em;
-	background:#aaa;
 	border-radius:1em;
 	padding-top: 1em;
 	min-height:200px;
@@ -14,15 +15,17 @@
 	border-radius:0.5em;
 	border: solid 1px #000;
 	margin: 0em;
+	height: 190px;
 }
 
 .questions-header{
-	background: #555;
+	background: #ccc;
 	border-radius: 0.5em 0.5em 0 0;
-	color: white;
-	padding: 0 1.3em 0 1em;
+	color: black;
+	padding: 0.2em 1em 0 1em;
 	font-size: 1em;
-	height: 1.5em;
+	height: 1.9em;
+	font-weight: bold;
 
 }
 
@@ -31,7 +34,7 @@
 }
 
 .questions-screen{
-	padding: 0.4em;
+	padding: 0.4em 0.4em 0.4em 1.1em;
 }
 
 .questions-screen h3{
@@ -50,7 +53,7 @@
 	margin-top: 0.8em;
 	background:#eee;
 	border: 1px solid #000;
-	margin-left: 2em;
+	margin-left: 4em;
 	margin-bottom: 0.5em;
 	border-radius:0.5em;
 background: rgb(255,255,255); /* Old browsers */

@@ -1,24 +1,34 @@
 <div class="row">
+	
+	<% @presentation.questions.each_with_index do |question, index| %>
         <div class="span4">
 		<div class="questions">
 			<div class="questions-header">
-	          		Heading
+	          		Question <%= index+1 %>
 				<div class="questions-header-nav">
 			        	<%= link_to "FAQ", '/faq' %>
 				</div>
 			</div>
 			
 			<div class="questions-screen">
-				<h3> What did you think of Mobile Hackathon? </h3>
+				<h3> <%= question.name %> </h3>
 				<ul>
-					<li > It was awesome </li>
-					<li> It was exciting </li>
-					<li> It was fun </li>
-					<li> It got frustrating </li>
-					<li> I'm not sure I should be in the industry </li>
+					 <% question.choices.each do |a,b| %> 
+						<li > <%= b %> </li>
+					<% end %>
 				</ul>
 			</div>
 		</div>
         </div>
+<% end %>
+<div id="dialog" title="Dialog Title">I'm in a dialog</div>
+
 
 </div>
+
+ <script>
+  $(document).ready(function() {
+    $("#dialog").dialog();
+  });
+  </script>
+

@@ -61,7 +61,7 @@ class PresentationsController < ApplicationController
     def edit_social_info
       @presentation = Presentation.find(params[:id])
       if @presentiation.save
-          flash[:success] = "Your Social Tags have been Saved"
+          flash[:success] = "The Presentation has been Updated"
       else
           flash[:error] = "Something went wrong"
       end

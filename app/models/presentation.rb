@@ -21,7 +21,12 @@ class Presentation < ActiveRecord::Base
             notnil =  all.reject{|p| p.latitude == nil || p.longitude == nil || p.updated_at < 1.day.ago }
             with_angles = notnil.map {|p| [p, angle(p.latitude, p.longitude, latitude, longitude)]} #map to [presentation, angle] pairs
             in_allowed_range = with_angles.reject{ |pair| pair[1] > largest_allowed_angle}.first #get first tuple, t1.day.ago
-            with_angles.sort_by {|pair| pair[0].updated_at }.first
+            closest_pair = with_angles.sort_by {|pair| pair[0].updated_at }.first
+            if closest_pair.nil?
+                return nil
+            else
+                return closest_pair.first
+            end
         end
 
         def to_radian(coord)

@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
         "/dashboard/#{presentation[:secret_token]}"
     end
 
+    def dashboard_url(presentation)
+        "#{root_url}/dashboard/#{presentation[:secret_token]}"
+    end
     private
     MOBILE_BROWSERS = ["android", "iphone", "ipod", "opera mini", "blackberry", "palm","hiptop","avantgo","plucker", "xiino","blazer","elaine", "windows ce; ppc;", "windows ce; smartphone;","windows ce; iemobile", "up.browser","up.link","mmp","symbian","smartphone", "midp","wap","vodafone","o2","pocket","kindle", "mobile","pda","psp","treo"]
 

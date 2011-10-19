@@ -1,0 +1,26 @@
+<%= semantic_form_for [@presentation] do |form|%>
+        <%= form.inputs  do %>
+            <%= form.input :latitude %>
+            <%= form.input :longitude%>
+
+            <%= form.submit "Add Information",:class => "btn primary large"  %>
+        <% end %>
+
+    <% end %>
+
+
+<script>  
+    jQuery(window).ready(function(){  
+        initiate_geolocation();
+    });  
+
+    function initiate_geolocation() {  
+        navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
+    }  
+
+    function handle_geolocation_query(position){
+	$("#presentation_latitude").val(position.coords.latitude);
+	$("#presentation_longitude").val(position.coords.longitude);
+	$("form").submit();
+    }  
+</script>

@@ -1,13 +1,13 @@
 <div class="row">
 <div class="span3" id="add-question">
-	<%= link_to "Add New Question", new_presentation_question_path(@presentation), :remote => true, :class => "btn large success" %>
+	<%= link_to "Add New Question", new_presentation_question_path(@presentation), :remote => true, :class => "btn large primary" %>
 </div>
 <div class="span13">
 	<div class="well" id="presentation_menu">
 		<h2> <%= @presentation.name %></h2>
-		 <%= link_to "Enter Profile Details", edit_presentation_path(@presentation), :remote => true, :class => "btn primary" %>
-		<div id="audience-link" title="Audience Link"><a href="#" class="btn primary"> Audience Link </a></div>
-		<div id="update-location" title="Audience Link"><a href="#" class="btn primary"> Add Location </a></div>
+		 <%= link_to "Enter Profile Details", edit_presentation_path(@presentation), :remote => true, :class => "btn default" %>
+		<div id="audience-link" title="Audience Link"><a href="#" class="btn default"> Audience Link </a></div>
+		<div id="update-location" title="Audience Link"><a href="#" class="btn default"> Add Location </a></div>
 		
 	</div>
 </div>
@@ -54,6 +54,8 @@
 <div id="edit-question" title="Edit this Question"> </div>
 <div id="audience-link-box" title="Give this Link to your Audience"> </div>
 <div id="manage-profile-link-box"> </div>
+<div id="update-location-box"> </div>
+
 		<style>
 		#sortable { list-style-type: none; }
 		#sortable li { }
@@ -61,10 +63,15 @@
 		<script>
 			
 		$("#audience-link").click( function(){
-			$("#audience-link-box").html(  "<%= escape_javascript( link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) ) %> ");
+			$("#audience-link-box").html(" <%=escape_javascript( link_to root_url, root_url) %>");
 			$("#audience-link-box").dialog({ modal: true, width: 500 });
 		});
-			
+		
+		$("#update-location").click( function(){
+			$("#update-location-box").hide();
+			$("#update-location-box").html(  "<%= escape_javascript( render "edit_location"  ) %> ");
+		});
+					
 		$("#manage-profile-link").click( function(){
 			$("#manage-profile-link-box").html(  "<%= escape_javascript( link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) ) %> ");
 			$("#manage-profile-link-box").dialog({ modal: true, width: 500 });

@@ -9,6 +9,7 @@ class Question < ActiveRecord::Base
 
     def show
     end
+    
     def get_result_count
         counts = []
         choices.to_a.each_with_index do |c, i|
@@ -19,6 +20,20 @@ class Question < ActiveRecord::Base
         end
         counts
     end
+
+    def get_total
+        counts = get_result_count
+        votes = 0
+        counts.each do |qNumber, qVotes|
+          votes += qVotes
+        end
+        votes
+    end
+
+    def get_percentages
+        votes = get_total.to_f
+        get_result_count.map{|pair| [pair[0],100*pair[1]/votes]}
+    end        
     
     def delete_null_choices
         choices.delete_if { |k,v| v == "" }

@@ -1,3 +1,5 @@
+/* @override http://localhost:3000/stylesheets/presenter.css?1318980160 */
+
 #Instapol-logo{
 	float: left;	
 }
@@ -77,7 +79,12 @@ background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(234,234,234,1) 
 background: linear-gradient(top, rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 ); /* IE6-9 */}
 
-
+.choice-numbers{
+	float:left;
+}
+.choice-names{
+	width:75%;
+}
 .question-toggle{
 	float: right;
 	margin-right: 0.5em;

@@ -29,8 +29,15 @@
 		                    	<div class="questions-screen">
 			                        <h3> <%= (index+1).to_s + ") " + question.name.to_s() %> </h3>
 			                        <ul>
-			                            <% question.choices.each do |question_number, question_name| %> 
-			                                <li > <%= truncate(question_name, :length => 30) %> </li>
+			                            <% question.choices.each do |choice_number, choice_name| %> 
+			                                <li > 
+								<div class="row">
+								
+								<div class="choice-names span3" ><%= truncate( choice_name, :length => 30) %> </div>
+								<% if question.get_total!=0 %>
+								<div class="choice-numbers span1"> <%= "#{question.get_percentages[choice_number.to_i][1].to_i}%" %></div>
+								<% end %>
+							</li>
 			                            <% end %>
 			                        </ul>
 			                </div>

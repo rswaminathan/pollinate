@@ -19,7 +19,7 @@
                         <h1><%= @presentation.name %></h1>
                         <h2>Waiting for next question...</h2>
 			<% if !@presentation.twitter_handle.nil? %>
-			<img src="http://api.twitter.com/1/users/profile_image?screen_name=<%= "ozziegooen" %>&size=bigger" alt="some_text"/>
+				<%= render 'social_information' %>
 			<% end %>
 
 </div>

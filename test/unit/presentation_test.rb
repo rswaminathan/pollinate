@@ -11,6 +11,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: presentations
@@ -25,5 +26,6 @@ end
 #  secret_token    :string(255)
 #  twitter_handle  :string(255)
 #  linkedIn_handle :string(255)
+#  email           :string(255)
 #
 

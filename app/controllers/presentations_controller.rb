@@ -32,9 +32,11 @@ class PresentationsController < ApplicationController
         @presentation = Presentation.create(params[:presentation])
         if @presentation.save
             flash[:success] = "Presentation Created"
+            InstapolMailer.welcome_email(@presentation, dashboard_url(@presentation)).deliver
             redirect_to dashboard_path(@presentation)
         else
             flash[:error] = "A Terrible Error has Occured."
+            render 'new'
         end
     end
 

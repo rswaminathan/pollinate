@@ -40,8 +40,8 @@ class PresentationsController < ApplicationController
 
     def update
       @presentation = Presentation.find(params[:id])
-      @presentation.update_attributes!( :twitter_handle => params[:twitter_handle], :linkedIn_handle=> params[:linkedIn_handle])
-      if @presentiation.save
+      @presentation.update_attributes(params[:presentation])
+      if @presentation.save
           flash[:success] = "Your Social Tags have been Saved"
       else
           flash[:error] = "Something went wrong"
@@ -55,7 +55,6 @@ class PresentationsController < ApplicationController
 
     def edit
       @presentation = Presentation.find(params[:id])
-
 
     end
     

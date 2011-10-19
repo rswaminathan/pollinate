@@ -6,7 +6,7 @@ Pollinate::Application.routes.draw do
     match	'about',					:to => 'pages#about'
     match	'go_pro',					:to => 'pages#go_pro'
     match 'contact', :to => 'pages#contact', :as => 'contact'
-    
+
     match	'homenew',					:to => 'pages#homenew'
     match 'geturl', :to => 'pages#geturl'
 
@@ -17,9 +17,9 @@ Pollinate::Application.routes.draw do
     match 'dashboard/:token', :to => "presentations#dashboard"
 
     resources :presentations do
-      
+
         get 'edit_social_info'
-        
+
         member do
             get 'results'
         end

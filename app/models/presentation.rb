@@ -38,7 +38,7 @@ class Presentation < ActiveRecord::Base
             lat2 = to_radian(lat2)
             long1 = to_radian(long1)
             long2 = to_radian(long2)
-            #use Haversine formula , more stable
+            #use Haversine formula , apparently more stable
             angle = 2*Math.asin(Math.sqrt(Math.sin((lat2-lat1)/2)**2 +
                                          Math.cos(lat1)*Math.cos(lat2)*Math.sin((long2-long1)/2)**2
                                          ))

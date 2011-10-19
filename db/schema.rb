@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111018213623) do
+ActiveRecord::Schema.define(:version => 20111019010221) do
 
   create_table "answers", :force => true do |t|
     t.string   "ip"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20111018213623) do
     t.string   "secret_token"
     t.string   "twitter_handle"
     t.string   "linkedIn_handle"
+    t.string   "email"
   end
 
   create_table "questions", :force => true do |t|

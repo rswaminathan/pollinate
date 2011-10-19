@@ -44,7 +44,11 @@ class PresentationsController < ApplicationController
       @presentation = Presentation.find(params[:id])
       @presentation.update_attributes(params[:presentation])
       if @presentation.save
-          flash[:success] = "Your Social Tags have been Saved"
+          if params[:presentation][:longitude]
+          flash[:success] = "Your Location has been saved"
+          elsif params[:presentation][:twitter_handle]
+          flash[:success] = "Your Social Tags have been saved"
+          end
       else
           flash[:error] = "Something went wrong"
       end

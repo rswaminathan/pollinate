@@ -1,3 +1,13 @@
+#Instapol-logo{
+	float: left;	
+}
+#header_nav{
+	float: right;
+}
+.ui-widget-overlay{
+background:black;
+opacity:0.8;
+}
 
 #main-page {
 	margin-top: 4em;
@@ -12,7 +22,8 @@
 	border-radius:0.5em;
 	border: solid 1px #000;
 	margin: 0em;
-	height: 190px;
+	height:230px;
+	margin-bottom:2em;
 }
 
 .questions-header{
@@ -35,6 +46,7 @@
 
 .questions-screen{
 	padding: 0.4em 0.4em 0.4em 1.1em;
+	height: 160px;
 }
 
 .questions-screen h3{
@@ -66,9 +78,31 @@ background: linear-gradient(top, rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 ); /* IE6-9 */}
 
 
-
+.question-toggle{
+	float: right;
+	margin-right: 0.5em;
+}
 
 #new_question{
 
 }
 
+#presentation_menu{
+	
+}
+#presentation_menu h2{
+	width: 300px;
+	float: left;
+
+	position: relative;
+	top: -5px;
+}
+
+#presentation_menu a{
+	float: left;
+	margin-right: 10px;
+}
+
+#question-add{
+	margin-top:10px
+}

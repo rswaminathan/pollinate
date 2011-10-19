@@ -13,7 +13,9 @@ Pollinate::Application.routes.draw do
     match 'dashboard/:token', :to => "presentations#dashboard"
 
     resources :presentations do
-
+      
+        get 'edit_social_info'
+        
         member do
             get 'results'
         end

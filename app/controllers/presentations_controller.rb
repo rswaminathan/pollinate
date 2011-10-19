@@ -40,8 +40,13 @@ class PresentationsController < ApplicationController
 
     def update
       @presentation = Presentation.find(params[:id])
-      @presentation.update_attributes!(:latitude => params[:lat], :longitude => params[:lon])
-      flash.now[:success] = "Updated location"
+      @presentation.update_attributes!( :twitter_handle => params[:twitter_handle], :linkedIn_handle=> params[:linkedIn_handle])
+      if @presentiation.save
+          flash[:success] = "Your Social Tags have been Saved"
+      else
+          flash[:error] = "Something went wrong"
+      end
+      redirect_to dashboard_path(@presentation)
     end
 
     def destroy
@@ -50,14 +55,28 @@ class PresentationsController < ApplicationController
 
     def edit
       @presentation = Presentation.find(params[:id])
+
+
+    end
+    
+    def edit_social_info
+      @presentation = Presentation.find(params[:id])
+      if @presentiation.save
+          flash[:success] = "Your Social Tags have been Saved"
+      else
+          flash[:error] = "Something went wrong"
+      end
+      redirect_to dashboard_path(@presentation)
+      
+      @presentation = Presentation.find(params[:id])
       @presentation.update_attributes!(:latitude => params[:lat], :longitude => params[:lon])
-      redirect_to presentation_results_path(@presentation)
+      flash.now[:success] = "Updated location"
     end
     
     private
     def resolve_layout 
       case action_name
-        when "results", "dashboard"
+        when "results", "dashboard", "new"
           "presenter"
         else
           "mobile"

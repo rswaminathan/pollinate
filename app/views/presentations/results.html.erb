@@ -1,42 +1,78 @@
 <div class="row">
+<div class="span3" id="add-question">
+	<%= link_to "Add New Question", new_presentation_question_path(@presentation), :remote => true, :class => "btn large success" %>
+</div>
+<div class="span13">
+	<div class="well" id="presentation_menu">
+		<h2> <%= @presentation.name %></h2>
+		 <%= link_to "Enter Profile Details", edit_presentation_path(@presentation), :remote => true, :class => "btn primary" %>
+		<div id="audience-link" title="Audience Link"><a href="#" class="btn primary"> Audience Link </a></div>
+		<div id="update-location" title="Audience Link"><a href="#" class="btn primary"> Add Location </a></div>
+		
+	</div>
+</div>
+</div>
+<ul class="row" id="sortable">
+		
+   		 <% if !@presentation.questions.empty? %>
+		        <% @presentation.questions.each_with_index do |question, index| %>
+		            <li class="span4">
+		                <div class="questions">
+		                    <div class="questions-header <%= question.enabled ? "question-header-enabled" : ""%>" >
+		                        <div class="questions-header-nav">
+		                            <%= link_to "edit", edit_presentation_question_path(@presentation, question), :remote => true %>
+						<%= link_to "delete", presentation_question_path(@presentation, question), :method => :delete, :confirm => "Are you sure?" %>
 
-    <div id = "link1" class=" btn large primary"><%= link_to "Add New", new_presentation_question_path(@presentation), :remote => true %>
-    </div>
-    <% if !@presentation.questions.empty? %>
-        <% @presentation.questions.each_with_index do |question, index| %>
-            <div class="span4">
-                <div class="questions">
-                    <div class="questions-header <%= question.enabled ? "question-header-enabled" : ""%>" >
-                        Question <%= index+1 %>
-                        <div class="questions-header-nav">
-                            <%= link_to "edit", edit_presentation_question_path(@presentation, question), :remote => true %>
-				<%= link_to "Delete", presentation_question_path(@presentation, question), :method => :delete, :confirm => "Are you sure?" %>
+		                        </div>
+		                    </div>
 
-                        </div>
-                    </div>
-
-                    <div class="questions-screen">
-                        <h3> <%= question.name %> </h3>
-                        <ul>
-                            <% question.choices.each do |question_number, question_name| %> 
-                                <li > <%= question_name %> </li>
-                            <% end %>
-                        </ul>
-			<% if question.enabled %>
-				<%= link_to "Hide", presentation_question_enable_path(@presentation, question), :class => "btn default", :method => :post %>
-                    	<% else %>
-				<%= link_to "Reveal", presentation_question_enable_path(@presentation, question), :class => "btn default", :method => :post %>
-			<% end %>
-			</div>
-                </div>
-            </div>
-        <% end %>
-    <% end %>
+		                    	<div class="questions-screen">
+			                        <h3> <%= (index+1).to_s + ") " + question.name.to_s() %> </h3>
+			                        <ul>
+			                            <% question.choices.each do |question_number, question_name| %> 
+			                                <li > <%= truncate(question_name, :length => 30) %> </li>
+			                            <% end %>
+			                        </ul>
+			                </div>
+					<div class="question-toggle">
+						<% if question.enabled %>
+							<%= link_to "Hide", presentation_question_enable_path(@presentation, question), :class => "btn default", :method => :post %>
+			                    	<% else %>
+							<%= link_to "Reveal", presentation_question_enable_path(@presentation, question), :class => "btn default", :method => :post %>
+						<% end %>
+					</div>
+						
+				</div>
+		            </li>
+		        <% end %>
+		    <% end %>
 
 </div>
 
 <div id="dialog" title="Create a Question"></div>
 
 <div id="edit-question" title="Edit this Question"> </div>
-
+<div id="audience-link-box" title="Give this Link to your Audience"> </div>
+<div id="manage-profile-link-box"> </div>
+		<style>
+		#sortable { list-style-type: none; }
+		#sortable li { }
+		</style>
+		<script>
+			
+		$("#audience-link").click( function(){
+			$("#audience-link-box").html(  "<%= escape_javascript( link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) ) %> ");
+			$("#audience-link-box").dialog({ modal: true, width: 500 });
+		});
+			
+		$("#manage-profile-link").click( function(){
+			$("#manage-profile-link-box").html(  "<%= escape_javascript( link_to "#{presentation_url(@presentation)}", presentation_path(@presentation) ) %> ");
+			$("#manage-profile-link-box").dialog({ modal: true, width: 500 });
+		});			
+			
+		$(function() {
+			$( "#sortable" ).sortable();
+			$( "#sortable" ).disableSelection();
+		});
+				</script>
 

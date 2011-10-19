@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to instapol! Your presentation,  <%= @presentation.name %> has been created.</h1>
+    <p>
+      You have successfully created a presentation at instapol.com,
+      The secret URL to your private dashboard is: <%= link_to @dashboard_url, @dashboard_url %>.<br/>
+      You may use this URL to enable and hide questions at different times, and display results to your audience. 
+      When you are located in the venue of your presentation, please click <%= link_to "here", @dashboard_url%> and add your
+      location so that users can immediately access the presentation <br />
+    </p>
+    <p>
+      To allow your users to participate, simply tell them to go to <%= link_to root_url, root_url %> on a mobile device.
+    </p>
+    <p>Thanks for using instapol! Please leave any suggestions or comments at <%= link_to "our contact page", contact_url %></p>
+  </body>
+</html>

@@ -17,22 +17,32 @@ class Presentation < ActiveRecord::Base
     class << self
 
         def closest_presentation(latitude, longitude)
+            largest_allowed_angle = 1/6378.1 #1 km angle
             notnil =  all.reject{|p| p.latitude == nil || p.longitude == nil}
             with_angles = notnil.map {|p| [p, angle(p.latitude, p.longitude, latitude, longitude)]} #map to [presentation, angle] pairs
-            remove_large = with_angles.reject{|pair| pair[1]== 2*Math::PI } #remove large angles
-            closest_pair = remove_large.sort_by{ |pair| pair[1]}.first #get first tuple, then the presentation
+            closest_pair = with_angles.sort_by{ |pair| pair[1]}.first #get first tuple, then the presentation
             if closest_pair.nil?
                 return nil
             else
-                return closest_pair.first
+                return closest_pair.first if closest_pair[1] < largest_allowed_angle
             end
         end
 
+        def to_radian(coord)
+            coord/180 * Math::PI
+        end
+
         def angle(lat1, long1, lat2, long2)
-            largest_allowed_angle = 1/6378.1 #1 km angle
-            angle = Math.acos(Math.sin(lat1)*Math.sin(lat2) +
-                      Math.cos(lat1)*Math.cos(lat2)*Math.cos(long2-long1))
-            angle < largest_allowed_angle ? angle : 2*Math::PI
+            lat1 = to_radian(lat1)
+            lat2 = to_radian(lat2)
+            long1 = to_radian(long1)
+            long2 = to_radian(long2)
+            #use Haversine formula , more stable
+            angle = 2*Math.asin(Math.sqrt(Math.sin((lat2-lat1)/2)**2 +
+                                         Math.cos(lat1)*Math.cos(lat2)*Math.sin((long2-long1)/2)**2
+                                         ))
+            #angle = Math.acos(Math.sin(lat1)*Math.sin(lat2) +
+            #          Math.cos(lat1)*Math.cos(lat2)*Math.cos(long2-long1))
         end
 
     end

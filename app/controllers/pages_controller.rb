@@ -13,6 +13,9 @@ class PagesController < ApplicationController
       end
   end
 
+  def home_non_free
+  end
+
   def mapper
     @information = params[:id];
   end

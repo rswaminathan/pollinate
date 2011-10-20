@@ -48,7 +48,7 @@ def resolve_layout
   case action_name
     when "about", "help", "go_pro"
       "presenter"
-    when "homenew"
+    when "homenew", "home_non_free"
       "application"
     else
       "mobile"

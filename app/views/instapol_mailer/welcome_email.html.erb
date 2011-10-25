@@ -1,21 +1,187 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-  </head>
-  <body>
-    <h1>Welcome to instapol! Your presentation,  <%= @presentation.name %> has been created.</h1>
-    <p>
-      You have successfully created a presentation at instapol.com,
-      The secret URL to your private dashboard is: <%= link_to @dashboard_url, @dashboard_url %>.<br/>
-      You may use this URL to enable and hide questions at different times, and display results to your audience. 
-      When you are located in the venue of your presentation, please click <%= link_to "here", @dashboard_url%> and add your
-      location so that users can immediately access the presentation <br />
-    </p>
-    <p>
-      To allow your users to participate, simply tell them to go to <%= link_to root_url, root_url %> on a mobile device.
-    </p>
-
-    <p>Thanks for using instapol! Please leave any suggestions or comments at <%= link_to "our contact page", contact_url %></p>
-  </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Instapol Welcome Email</title>
+<!--[if gte mso 9]>
+<style type="text/css">
+.body {background: #234865 url('images/body-bg.jpg');}	     
+.case {background: none;}
+</style>
+<![endif]-->
+</head>
+<style type="text/css">
+a { color:#6aacdf; text-decoration: underline; }
+</style>
+<body class="body" style="margin: 0; padding: 0; background-color: #234865; background-image: url(images/body-bg.jpg); background-repeat: repeat;" marginheight="0" topmargin="0" marginwidth="0" leftmargin="0">
+<!--100% body table-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td class="case" bgcolor="#234865" style="background-color: #234865; background-image: url('images/body-bg.jpg'); background-repeat: repeat;">
+            <!--[if gte mso 9]>
+<td style="background: none;">
+<![endif]-->
+            <!--header text-->
+            <table style="background-image: url(images/header-lines.jpg); background-position: bottom; background-repeat: repeat-x;" bgcolor="#1d3952" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <table id="top" width="578" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td valign="top" align="center" height="35">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td height="10"></td>
+                                        </tr>
+                                    </table>
+                                    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #4484b5; margin: 0; padding: 0;">Having trouble reading this email?
+                                        <a href="#">View it in your browser.</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <!--/header text-->
+            <!--intro-->
+            <table width="578" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td valign="top" height="20"></td>
+                </tr>
+                <tr>
+                    <td valign="top" height="76" width="270">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <img src="images/Instapol-logo.png" height="78" width="579">
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" height="20"></td>
+                </tr>
+            </table>
+            <!--/intro-->
+            <!--content section-->
+            <table width="576" border="0" align="center" cellpadding="20" cellspacing="0">
+                <tr>
+                    <td valign="top" bgcolor="#1c3851" background="images/content-bg.jpg" style="border: solid 1px #193044; border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; -khtml-border-radius: 8px;">
+                        <h2 style="font-family: Helvetica, Arial, sans-serif; font-size: 18px; margin: 0px; padding: 0px; text-shadow: 1px 1px 1px #333333; color: #62b6ee">Your presentation, <%= @presentation.name %> has been created.</h2>
+                        <!--break-->
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td height="20"></td>
+                            </tr>
+                        </table>
+                        <!--/break-->
+                        <p style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; margin-top: 0px; margin-bottom: 0px; padding: 0px; color: #e7eff6">Here's how to successfully use polls in your presentations:</p>
+                        <!--break-->
+                        <!--break-->
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td height="20"></td>
+                            </tr>
+                        </table>
+                        <!--/break-->
+                        <p style="font-family: Helvetica, Arial, sans-serif; list-style: none; font-size: 13px; margin-top: 0px; margin-bottom: 5px; padding: 0px; color: #e7eff6"><img src="images/li.png" height="14" width="13">Visit your dashboard <%= link_to @dashboard_url, @dashboard_url %> to add questions to your poll.</p>
+                        <p style="font-family: Helvetica, Arial, sans-serif; list-style: none; font-size: 13px; margin-top: 0px; margin-bottom: 5px; padding: 0px; color: #e7eff6"><img src="images/li.png" height="14" width="13">Be sure to click <%= link_to "here", @dashboard_url%> to add location to Instapol.</p>
+                        <p style="font-family: Helvetica, Arial, sans-serif; list-style: none; font-size: 13px; margin-top: 0px; margin-bottom: 5px; padding: 0px; color: #e7eff6"><img src="images/li.png" height="14" width="13">Direct your audience to Instapol.com on their web-devices to answer your poll questions.</p>
+                        <p style="font-family: Helvetica, Arial, sans-serif; list-style: none; font-size: 13px; margin-top: 0px; margin-bottom: 5px; padding: 0px; color: #e7eff6"><img src="images/li.png" height="14" width="13">You can project your dashboard to dazzle your audience with live polling results or view the results yourself later.</p>
+                        <!--line-->
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td valign="middle" height="40"> <img src="images/line.jpg" width="533" height="11"></td>
+                            </tr>
+                        </table>
+                        <!--/line-->
+                        <p style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; margin-top: 0px; margin-bottom: 0px; padding: 0px; color: #e7eff6">We hope you enjoy using Instapol. To learn more about Instapol please check out our <a href="#">tour</a></p>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td height="30"></td>
+                            </tr>
+                        </table>
+                        <!--/break-->
+                        <p style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; margin-top: 0px; margin-bottom: 0px; padding: 0px; color: #e7eff6">Sincerely,</p>
+                        <!--break-->
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td height="30"></td>
+                            </tr>
+                        </table>
+                        <!--/break-->
+                        <p style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; margin-top: 0px; margin-bottom: 0px; padding: 0px; color: #e7eff6">The Instapol Team</p>
+                        <!--break-->
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td height="10"></td>
+                            </tr>
+                        </table>
+                        <!--/break-->
+                    </td>
+                </tr>
+            </table>
+            <!--/content section-->
+            <!--content section-->
+            <table width="578" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <table width="578" border="0" cellpadding="20" cellspacing="0">
+                            <tr>
+                                <td align="center">
+                                    <table width="200" border="0" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td><img style="margin: 0; padding: 0; display: block;" src="images/foward.png" width="29" height="24" alt="foward"></td>
+                                            <td>
+                                                <forwardtoafriend style="font-family: Helvetica, Arial, sans-serif; font-weight: bold; font-size: 16px; margin: 0px; padding: 0px; text-shadow: 1px 1px 1px #000; color: #62b6ee">Foward to friend</forwardtoafriend>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td align="center">
+                                    <table width="100" border="0" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td><img style="margin: 0; padding: 0; display: block;" src="images/share.png" width="29" height="26" alt="share this"></td>
+                                            <td>
+                                                <share style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; margin: 0px; padding: 0px; text-shadow: 1px 1px 1px #000; color: #62b6ee">Share</share>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <!--/content section-->
+            <!--footer-->
+            <table style="background-image: url(images/toolbarBG.png); background-position: top; background-repeat: repeat-x;" bgcolor="#1c293b" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <table width="578" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td valign="top" align="center" height="60">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td height="15"></td>
+                                        </tr>
+                                    </table>
+                                    <p style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; margin: 0px; padding: 0px; color: #30648d; text-shadow: 1px 1px 1px #000;">
+Thanks for using Instapol! Please direct any comments or suggestions to <%= link_to "our contact page", contact_url %></p>
+                                    <p style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; margin: 0px; padding: 0px; color: #30648d; text-shadow: 1px 1px 1px #000;">Copyright © 2011 Instapol. All Rights Reserved.</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <!--/footer-->
+        </td>
+    </tr>
+</table>
+<!--/100% body table-->
+</body>
 </html>

@@ -154,7 +154,7 @@ div#top_content {
 				float: left;
 				margin-left: 30px;
 				line-height: 19px;
-				margin-top: 10px;
+/* 				margin-top: 10px; */
 			}
 			div#top_content div#app_description div.actions p b { display: block; color: #ddd; }
 div#page_seperator {
@@ -164,6 +164,33 @@ div#page_seperator {
 }			
 div#bottom_content {
 		background: url('../images/dark_shadow.gif') no-repeat top;
+}
+#email {
+	background: url('../images/submit_form.png') no-repeat;
+	border: none;
+	color: #888;
+	height: 31px;
+	left: 10px;
+	line-height: 31px;
+	padding-left: 8px;
+	position: absolute;
+	text-shadow: 1px 1px 0 white;
+	top: 10px;
+	width: 215px;
+	outline: none;
+}
+#submitButton {
+	background: url('../images/submit_form.png') no-repeat right top;
+	border: none;
+	cursor: pointer;
+	height: 31px;
+	left: 236px;
+	line-height: 31px;
+	position: absolute;
+	text-indent: -99999px;
+	text-transform: uppercase;
+	top: 10px;
+	width: 96px;
 }
 /*--------------------------------------------
 Nav
